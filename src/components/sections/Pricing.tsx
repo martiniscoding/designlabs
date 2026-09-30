@@ -5,18 +5,6 @@ import { pricing, site } from "@/content/site";
 import { gsap, reducedMotion } from "@/lib/gsap";
 import { CallIcon, ClockIcon, MessageIcon } from "@/components/Icons";
 import { Tick } from "@/components/ui/Bits";
-import { Mark } from "@/components/Icons";
-
-function Watermark() {
-  return (
-    <span
-      aria-hidden="true"
-      className="pointer-events-none absolute -right-6 -bottom-8 scale-[6] opacity-[0.12]"
-    >
-      <Mark size={40} />
-    </span>
-  );
-}
 
 const fmt = (n: number) => `$${n.toLocaleString("en-US")}`;
 
@@ -105,10 +93,9 @@ export default function Pricing() {
         role="tabpanel"
         id={`panel-${tab.id}`}
         aria-labelledby={`tab-${tab.id}`}
-        className="relative isolate mt-10 overflow-hidden rounded-[var(--radius-panel)] bg-card p-6 shadow-[0_28px_60px_-45px_rgba(30,36,48,0.6)] lg:p-10"
+        className="mt-10 rounded-[var(--radius-panel)] border border-line/70 bg-card p-6 shadow-[0_1px_2px_rgba(30,36,48,0.04),0_18px_40px_-34px_rgba(30,36,48,0.4)] lg:p-10"
       >
-        <span aria-hidden="true" className="tex tex-paper" />
-        <div className="relative grid gap-10 lg:grid-cols-[1.1fr_1fr]">
+        <div className="grid gap-10 lg:grid-cols-[1.1fr_1fr]">
           <div>
             <div className="flex flex-wrap items-center gap-3">
               <h2 className="display text-[2rem] leading-none">{tab.name}</h2>
@@ -153,11 +140,9 @@ export default function Pricing() {
           </div>
 
           <div>
-            <div className="relative overflow-hidden rounded-[var(--radius-card)] bg-ink p-7">
-              <span aria-hidden="true" className="tex tex-ink" />
-              <Watermark />
-              <p className="wordmark relative text-white/60">{site.name}</p>
-              <div className="relative mt-16">
+            <div className="rounded-[var(--radius-card)] bg-ink p-7">
+              <p className="wordmark text-white/60">{site.name}</p>
+              <div className="mt-16">
                 <p className="text-[0.8125rem] font-semibold uppercase tracking-[0.12em] text-white/75">
                   {tab.label}
                 </p>
@@ -189,9 +174,8 @@ export default function Pricing() {
 
       <div className="my-12 h-px bg-line lg:my-16" />
 
-      <div className="relative isolate overflow-hidden rounded-[var(--radius-panel)] bg-card p-6 shadow-[0_28px_60px_-45px_rgba(30,36,48,0.5)] lg:p-10">
-        <span aria-hidden="true" className="tex tex-paper" />
-        <div className="relative grid gap-10 lg:grid-cols-[1.1fr_1fr]">
+      <div className="rounded-[var(--radius-panel)] border border-line/70 bg-card p-6 shadow-[0_1px_2px_rgba(30,36,48,0.04),0_18px_40px_-34px_rgba(30,36,48,0.4)] lg:p-10">
+        <div className="grid gap-10 lg:grid-cols-[1.1fr_1fr]">
           <div>
             <h2 className="display text-[2rem] leading-none">{pricing.retainer.name}</h2>
             <div className="mt-7 flex items-center gap-4 rounded-[18px] bg-hush/70 px-5 py-4">
@@ -238,11 +222,9 @@ export default function Pricing() {
           </div>
 
           <div>
-            <div className="relative overflow-hidden rounded-[var(--radius-card)] bg-accent-deep p-7">
-              <span aria-hidden="true" className="tex tex-ember" />
-              <Watermark />
-              <p className="wordmark relative text-white/60">{site.name}</p>
-              <div className="relative mt-16">
+            <div className="rounded-[var(--radius-card)] bg-accent-deep p-7">
+              <p className="wordmark text-white/60">{site.name}</p>
+              <div className="mt-16">
                 <p className="text-[0.8125rem] font-semibold uppercase tracking-[0.12em] text-white/75">
                   Retainer · {pricing.retainer.unit}
                 </p>
