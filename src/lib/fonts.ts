@@ -1,6 +1,6 @@
 import localFont from "next/font/local";
 
-/** UI and body. */
+/** The one typeface: headlines, UI and body, at every weight. */
 export const inter = localFont({
   src: "../fonts/Inter-Variable.woff2",
   variable: "--font-inter",
@@ -9,16 +9,7 @@ export const inter = localFont({
   fallback: ["system-ui", "Helvetica Neue", "sans-serif"],
 });
 
-/** Condensed display: the wordmark and the uppercase card headings. */
-export const phudu = localFont({
-  src: "../fonts/Phudu-Variable.woff2",
-  variable: "--font-phudu",
-  weight: "300 900",
-  display: "swap",
-  fallback: ["system-ui", "sans-serif"],
-});
-
-/** Handwriting, for the polaroid captions only. */
+/** Handwriting, for the two scribbled accents in the testimonials heading. */
 export const caveat = localFont({
   src: "../fonts/Caveat-Variable.woff2",
   variable: "--font-caveat",

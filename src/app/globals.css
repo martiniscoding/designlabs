@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* ------------------------------------------------------------------
-   Tokens — navy on light grey, white cards, lime accent.
+   Tokens — deep slate on warm neutrals, white cards, one rust accent.
 ------------------------------------------------------------------- */
 @theme {
   /* Quiet warm neutrals. */
@@ -16,16 +16,27 @@
   --color-muted: #575f6d;
   --color-faint: #838b98;
 
-  /* One accent, used sparingly: ticks, active states, the retainer card.
-     5.31:1 on the shell, and white on it is 6.0:1. */
-  --color-accent: #2e6e5b;
-  --color-accent-deep: #1f4d3f;
+  /* Two tiers, because a bright orange cannot do both jobs on a light page.
+     `accent` is the fill — bright, and it takes INK text, never white
+     (ink on it 5.55:1, white on it only 2.80:1). `accent-ink` is the same
+     hue pushed dark enough to be read as text on the shell (4.99:1).
+     `accent-deep` stays for the dark cards, where white text sits. */
+  --color-accent: #f97316;
+  --color-accent-ink: #b34309;
+  --color-accent-deep: #6f2c10;
 
   /* The highlight behind an emphasised phrase — soft straw, not a marker. */
   --color-mark: #ece4c9;
 
+  /* shadcn-style aliases, used by components in components/ui. */
+  --color-background: #fbfaf8;
+  --color-foreground: #1e2430;
+  --color-primary: #b34309;
+  --color-border: #e2e0da;
+
+  /* One typeface site-wide: Inter, from the hero headline down to a caption.
+     Caveat is the single exception — the Dribbble wordmark in the FAQ. */
   --font-sans: var(--font-inter), system-ui, sans-serif;
-  --font-display: var(--font-phudu), system-ui, sans-serif;
   --font-hand: var(--font-caveat), cursive;
 
   --radius-panel: 28px;
@@ -60,12 +71,11 @@ body {
   border-radius: 6px;
 }
 
-/* Condensed uppercase headings on the cards. */
-@utility phudu {
-  font-family: var(--font-display);
+/* The wordmark, wherever the studio name is set as a logo. Same weight and
+   tracking as the headlines, so the name reads as part of the same voice. */
+@utility wordmark {
   font-weight: 700;
-  letter-spacing: 0.005em;
-  text-transform: uppercase;
+  letter-spacing: -0.04em;
 }
 
 /* Small grey section labels. */
@@ -77,11 +87,13 @@ body {
   color: var(--color-muted);
 }
 
-/* Big headline: tight, mixed-weight-colour treatment. */
-@utility hero-type {
+/* Every headline on the site, from the hero down to a card title: Inter,
+   bold and tightly tracked. Size and colour vary; the voice does not. */
+@utility display {
+  font-family: var(--font-sans);
   font-weight: 700;
-  letter-spacing: -0.035em;
-  line-height: 1.06;
+  letter-spacing: -0.04em;
+  line-height: 1.04;
   text-wrap: balance;
 }
 
@@ -116,6 +128,119 @@ body {
   }
 }
 
+/* The work showcase under the hero: each track holds its row twice, so
+   sliding by half its width loops without a seam. Reduced motion is caught
+   by the rule above, which leaves the rows still. */
+@keyframes marquee-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-right {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* The hero's stars: a slow breathe between faint and lit. Duration and delay
+   are set per star inline, so the sky never pulses in unison. */
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(0.85);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+}
+
+[data-twinkle] {
+  opacity: 0.55;
+  animation: twinkle 5s ease-in-out infinite;
+}
+
+/* Process illustrations: a fixed 440×330 drawing, centred in its frame and
+   scaled down in steps as the frame narrows. */
+.art-frame {
+  container-type: inline-size;
+}
+
+.art-canvas {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 440px;
+  height: 330px;
+  translate: -50% -50%;
+  scale: 1;
+}
+
+/* Each step uses its range's narrowest width ÷ 440, so it never overflows. */
+@container (max-width: 440px) { .art-canvas { scale: 0.95; } }
+@container (max-width: 420px) { .art-canvas { scale: 0.86; } }
+@container (max-width: 380px) { .art-canvas { scale: 0.77; } }
+@container (max-width: 340px) { .art-canvas { scale: 0.68; } }
+@container (max-width: 300px) { .art-canvas { scale: 0.61; } }
+@container (max-width: 270px) { .art-canvas { scale: 0.55; } }
+
+[data-marquee="left"] {
+  animation: marquee-left var(--marquee-duration, 90s) linear infinite;
+}
+
+[data-marquee="right"] {
+  animation: marquee-right var(--marquee-duration, 90s) linear infinite;
+}
+
+/* The halo behind "See all work". It breathes slowly so the eye catches it
+   after the rows have drifted, and settles the moment you hover the button.
+   The reduced-motion block above stops it. */
+@keyframes halo-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.09);
+    opacity: 0.12;
+  }
+}
+
+[data-halo] {
+  animation: halo-breathe 3.2s var(--ease-out-soft) infinite;
+}
+
+/* /work: each bento block rises in, staggered by an inline delay, and again
+   whenever the filter re-packs the grid. */
+@keyframes work-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
+.work-in {
+  animation: work-in 0.6s var(--ease-out-soft) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .work-in {
+    animation: none;
+  }
+}
+
 /* ------------------------------------------------------------------
    Motion start states.
 
@@ -137,7 +262,6 @@ body {
 
 /* The hero is CSS, not GSAP: it must not wait for the deferred motion chunk,
    or the headline — the LCP element — paints late. */
-[data-motion] [data-hero-eyebrow],
 [data-motion] [data-hero-head],
 [data-motion] [data-hero-sub],
 [data-motion] [data-hero-cta] {
@@ -153,10 +277,167 @@ body {
 [data-motion] [data-hero-cta] {
   animation-delay: 0.3s;
 }
-[data-motion] [data-cap] {
-  opacity: 0;
+
+/* ------------------------------------------------------------------
+   Card textures (pricing). Drop `<span class="tex tex-…">` in as the
+   first child of a positioned card; content after it paints on top.
+   Each variant is a colour glow, a fine pattern that fades out through
+   a mask, and film grain in ::after.
+------------------------------------------------------------------- */
+.tex {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: inherit;
+  pointer-events: none;
 }
 
-[data-motion] [data-polaroid] {
+.tex::before,
+.tex::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.tex::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px;
+  mix-blend-mode: overlay;
+  opacity: 0.45;
+}
+
+/* Navy: drafting grid under a rust glow, champagne rising from below. */
+.tex-ink {
+  background:
+    radial-gradient(120% 95% at 100% 0%, rgb(249 115 22 / 0.85), transparent 58%),
+    radial-gradient(90% 85% at 0% 100%, rgb(220 203 159 / 0.26), transparent 62%);
+}
+.tex-ink::before {
+  background-image:
+    linear-gradient(rgb(255 255 255 / 0.11) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 0.11) 1px, transparent 1px);
+  background-size: 26px 26px;
+  mask-image: radial-gradient(ellipse 100% 90% at 85% 5%, black, transparent 80%);
+}
+
+/* Ember: diagonal hairlines under a champagne glow, rust rising. */
+.tex-ember {
+  background:
+    radial-gradient(110% 90% at 100% 0%, rgb(236 228 201 / 0.34), transparent 58%),
+    radial-gradient(100% 90% at 0% 100%, rgb(251 146 60 / 0.6), transparent 62%);
+}
+.tex-ember::before {
+  background-image: repeating-linear-gradient(135deg, rgb(255 255 255 / 0.12) 0 1px, transparent 1px 10px);
+  mask-image: radial-gradient(ellipse 100% 95% at 90% 5%, black, transparent 78%);
+}
+
+/* Paper: warm wash, a dot grid out of one corner, and a fine tooth. */
+.tex-paper {
+  background:
+    radial-gradient(70% 80% at 0% 0%, rgb(236 228 201 / 0.85), transparent 70%),
+    radial-gradient(60% 70% at 100% 100%, rgb(249 115 22 / 0.12), transparent 70%);
+}
+.tex-paper::before {
+  background-image: radial-gradient(rgb(30 36 48 / 0.2) 1.1px, transparent 1.6px);
+  background-size: 14px 14px;
+  mask-image: radial-gradient(ellipse 70% 85% at 100% 0%, black, transparent 78%);
+}
+.tex-paper::after {
+  mix-blend-mode: multiply;
+  opacity: 0.14;
+}
+
+/* ------------------------------------------------------------------
+   Hover scenes, shared by the "how we work" bento (Impact.tsx) and the
+   services grid (Services.tsx).
+
+   Each card is a small hover scene. Parts carry their own offsets as
+   custom properties and slide to them while the card is hovered;
+   `.fade-out` / `.fade-in` cross the colour version of a tool mark in
+   over the grey one; `.wire` runs dots along a connector that only
+   exists on hover. The blanket reduced-motion rule near the top of
+   this file stops every part of it.
+
+   A card is a scene only on a pointer that can hover, so nothing is
+   left half-played on a phone.
+------------------------------------------------------------------- */
+.scene .drift {
+  transform: rotate(var(--r0, 0deg));
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 0.75s var(--ease-out-soft);
+  transition-delay: var(--delay, 0ms);
+}
+
+.scene .fade-out {
+  transition: opacity 0.5s var(--ease-out-soft);
+  /* Same delay as the matching fade-in, or a staggered mark blanks out in
+     the gap between its grey layer leaving and its colour arriving. */
+  transition-delay: var(--delay, 0ms);
+}
+
+.scene .fade-in {
   opacity: 0;
+  transition: opacity 0.5s var(--ease-out-soft);
+  transition-delay: var(--delay, 0ms);
+}
+
+.scene .swap-fill {
+  transition: fill 0.6s var(--ease-out-soft);
+}
+
+.scene .swap-stroke {
+  transition: stroke 0.5s var(--ease-out-soft);
+}
+
+.scene .wire {
+  opacity: 0;
+  transition: opacity 0.4s var(--ease-out-soft);
+}
+
+/* A part that grows rather than moves — a bar rising out of a chart, a
+   swatch swelling. `--origin` picks the edge it grows from. */
+.scene .stretch {
+  transform-box: fill-box;
+  transform-origin: var(--origin, center);
+  transition: transform 0.7s var(--ease-out-soft);
+  transition-delay: var(--delay, 0ms);
+}
+
+@media (hover: hover) {
+  .scene:hover .drift {
+    transform: translate(var(--dx, 0px), var(--dy, 0px)) rotate(var(--dr, 0deg));
+  }
+
+  .scene:hover .fade-out {
+    opacity: 0;
+  }
+
+  .scene:hover .fade-in {
+    opacity: 1;
+  }
+
+  .scene:hover .swap-fill {
+    fill: var(--to-fill);
+  }
+
+  .scene:hover .swap-stroke {
+    stroke: var(--color-accent);
+  }
+
+  .scene:hover .stretch {
+    transform: scale(var(--sx, 1), var(--sy, 1));
+  }
+
+  .scene:hover .wire {
+    opacity: 1;
+    animation: impact-flow 0.9s linear infinite;
+    animation-delay: var(--delay, 0ms);
+  }
+}
+
+@keyframes impact-flow {
+  to {
+    stroke-dashoffset: -22;
+  }
 }

@@ -1,38 +1,33 @@
 import Shell, { Container } from "@/components/Shell";
 import Hero from "@/components/sections/Hero";
-import Work from "@/components/sections/Work";
-import Problem from "@/components/sections/Problem";
-import Solution from "@/components/sections/Solution";
-import Approach from "@/components/sections/Approach";
+import TrustedBy from "@/components/sections/TrustedBy";
+import Showcase from "@/components/sections/Showcase";
 import Services from "@/components/sections/Services";
-import PricingTeaser from "@/components/sections/PricingTeaser";
+import Impact from "@/components/sections/Impact";
 import Testimonials from "@/components/sections/Testimonials";
-import FinalNote from "@/components/sections/FinalNote";
+import Process from "@/components/sections/Process";
+import Faq from "@/components/sections/Faq";
 import Footer from "@/components/sections/Footer";
 import { Divider } from "@/components/ui/Bits";
-import { problem, solution, finalNote } from "@/content/site";
+import { workflow } from "@/content/site";
 
 export default function Page() {
   return (
     <Shell hero>
       <Hero />
+      <TrustedBy />
+      <Showcase />
       <Container className="pb-4">
-        <Divider label="The work" />
-        <Work />
-        <Divider label={problem.eyebrow} />
-        <Problem />
-        <Divider label={solution.eyebrow} />
-        <Solution />
-        <Divider label="How it works" />
-        <Approach />
         <Divider label="Services" />
         <Services />
-        <Divider label="Pricing" />
-        <PricingTeaser />
-        <Divider label="What clients said" />
+        <Divider label="How we work" />
+        <Impact />
+        <Divider label={workflow.eyebrow} />
+        <Process />
+        <Divider label="Testimonials" />
         <Testimonials />
-        <Divider label={finalNote.eyebrow} />
-        <FinalNote />
+        <Divider label="FAQ" />
+        <Faq />
         <Footer />
       </Container>
     </Shell>

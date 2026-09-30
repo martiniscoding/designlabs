@@ -2,13 +2,12 @@ import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 
-export const alt = "Plumbline — design for products that are better than they look";
+export const alt = "DesignLabs — design for products that are better than they look";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default async function Image() {
-  const [phudu, inter] = await Promise.all([
-    readFile(path.join(process.cwd(), "src/fonts/Phudu-OG.ttf")),
+  const [inter] = await Promise.all([
     readFile(path.join(process.cwd(), "src/fonts/Inter-OG.ttf")),
   ]);
 
@@ -40,12 +39,12 @@ export default async function Image() {
               style={{
                 width: 22,
                 height: 22,
-                backgroundColor: "#2e6e5b",
+                backgroundColor: "#f97316",
                 clipPath: "polygon(50% 0%, 100% 34%, 50% 100%, 0% 34%)",
               }}
             />
-            <span style={{ fontFamily: "Phudu", fontSize: 30, color: "#1e2430", letterSpacing: 1 }}>
-              PLUMBLINE
+            <span style={{ fontFamily: "Inter", fontSize: 30, color: "#1e2430", letterSpacing: -1 }}>
+              DesignLabs
             </span>
           </div>
 
@@ -75,7 +74,6 @@ export default async function Image() {
     {
       ...size,
       fonts: [
-        { name: "Phudu", data: phudu, weight: 700 as const, style: "normal" as const },
         { name: "Inter", data: inter, weight: 600 as const, style: "normal" as const },
       ],
     },

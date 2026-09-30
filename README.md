@@ -1,4 +1,4 @@
-# Plumbline
+# DesignLabs
 
 A single-page site for a design studio, built as a portfolio piece.
 
@@ -24,7 +24,7 @@ words here are original. Their assets are theirs.
 
 ## ⚠ Everything here is demo content
 
-Plumbline is a **fictional studio**. There is no client behind it. Invented,
+DesignLabs is a **fictional studio**. There is no client behind it. Invented,
 and unsafe to ship as-is:
 
 | What | Where | Status |

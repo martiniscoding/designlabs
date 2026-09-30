@@ -1,13 +1,13 @@
 /**
  * All copy and data for the site.
  *
- * ⚠ DEMO CONTENT — Plumbline is a fictional studio built as a portfolio
+ * ⚠ DEMO CONTENT — DesignLabs is a fictional studio built as a portfolio
  * piece. Projects, outcomes, testimonials and numbers are invented. See README.
  */
 export const DEMO_CONTENT = true;
 
 export const site = {
-  name: "Plumbline",
+  name: "DesignLabs",
   tagline: "Design for products that are better than they look",
   email: "theo@plumbline.studio",
   booking: "https://cal.com/plumbline/intro",
@@ -21,26 +21,29 @@ export const nav: {
   section?: boolean;
 }[] = [
   { id: "home", label: "Home", href: "/#home", section: true },
-  { id: "work", label: "Work", href: "/#work", section: true },
-  { id: "approach", label: "Approach", href: "/#approach", section: true },
+  { id: "work", label: "Work", href: "/work" },
   { id: "pricing", label: "Pricing", href: "/pricing" },
 ];
 
 export const hero = {
-  credibility: "Shipped 11 products since 2023",
-  /* `dim: true` renders in the light blue-grey, the rest in navy. */
-  headline: [
-    { text: "The studio", tone: "ink" },
-    { text: "for products", tone: "dim" },
-    { text: "that are", tone: "ink" },
-    { text: "better", tone: "ink" },
-    { text: "than they look", tone: "dim" },
-  ],
+  /* One entry per line. The full stop after the last line is set in the
+     accent by the component. */
+  headline: ["Design for products", "better than they look"],
   sub:
     "Product UI, brand systems and launch sites for dev tools and B2B " +
     "software. One designer, who wrote production code for six years.",
   primary: { label: "Book a call", href: "https://cal.com/plumbline/intro" },
   secondary: { label: "See the work", href: "#work" },
+};
+
+/**
+ * The client strip under the hero. Slugs point into works.ts, so the names
+ * can never drift from the portfolio, and each one needs a matching mark at
+ * /public/logos/<slug>.png.
+ */
+export const trustedBy = {
+  label: "Trusted by",
+  clients: ["goroam", "fincrux", "ryne-ai", "volnex", "replizz-ai", "chatdoc"],
 };
 
 export const problem = {
@@ -53,37 +56,6 @@ export const problem = {
     before: "A product that works this well should not have to argue for itself. It should ",
     marked: "read as serious",
     after: " on sight.",
-  },
-};
-
-export const solution = {
-  eyebrow: "What's the solution?",
-  lead: "That's why I built",
-  frames: [
-    { id: "brand", caption: "the marks…", label: "Brand system", pin: "red", rotate: -3 },
-    { id: "ui", caption: "day one screens", label: "Product UI", pin: "clip", rotate: 2.2 },
-    { id: "icons", caption: "on your grid", label: "Icon set", pin: "green", rotate: -1.6 },
-    { id: "system", caption: "npm install", label: "Design system", pin: "tape", rotate: 3.4 },
-    { id: "site", caption: "sells while you sleep", label: "Launch site", pin: "clip", rotate: -2.4 },
-  ],
-} as const;
-
-export const approach = {
-  eyebrow: "Approach",
-  title: "A weight on a string",
-  body: [
-    "A plumb line is the oldest instrument on a building site: a weight " +
-      "hanging off a string. It has no taste and no opinion. It only shows " +
-      "you what is true and what is leaning.",
-    "That is the method. Before anything gets styled, it gets hung straight " +
-      "— the hierarchy, the spacing, the words. Most products that look " +
-      "cheap are not badly decorated. They are out of true, and every " +
-      "screen repeats the error.",
-  ],
-  toggle: {
-    off: "Off plumb",
-    on: "Plumb",
-    caption: "Same content, same component. The only change is alignment, spacing and type.",
   },
 };
 
@@ -163,7 +135,7 @@ export const pricing = {
     },
   ],
   retainer: {
-    name: "Plumbline retainer",
+    name: "DesignLabs retainer",
     price: 8900,
     unit: "per month",
     features: [
@@ -187,14 +159,71 @@ export const pricing = {
 };
 
 /**
- * DEMO_CONTENT. Written for a fictional studio. Delete outright before
- * shipping for a real client with no real testimonials.
+ * Real client reviews, verbatim from Build Labs (buildlabs.agency), the
+ * owner's development company. Quotes are unedited — keep them that way.
+ * `highlight` must be an exact substring of `quote`.
  */
 export const testimonials = [
-  { quote: "We had a good product and a bad first impression. Theo fixed the second one in five weeks and our demo-to-trial rate moved the week we shipped it.", name: "Priya Raman", role: "Co-founder, Ravel" },
-  { quote: "The handoff was a pull request against our own repo. I have never had that from a designer before, and it saved my engineers about a fortnight.", name: "Daniel Osei", role: "CTO, Bracket" },
-  { quote: "Direct, fast, and happy to argue with me about the pricing page. It ended up being the best page on the site.", name: "Marta Kovač", role: "Founder, Ledgerpost" },
+  { quote: "Buildlabs helped Skanaus deliver a smooth and intuitive mobile experience. The UI is sleek, onboarding is seamless, and the app performs flawlessly on all devices.", highlight: "The UI is sleek, onboarding is seamless", name: "Corey Payne", role: "Founder, Skanaus App", photo: "/testimonial/corey.jpeg" },
+  { quote: "Unicapp App's mobile experience improved dramatically. Buildlabs delivered intuitive navigation, smooth onboarding flows, and a polished interface our users love.", highlight: "a polished interface our users love", name: "Prahlad", role: "Founder, Unicapp App", photo: "/testimonial/prahlad.jpeg" },
+  { quote: "Ryne AI's website now engages users like never before. Buildlabs crafted a polished, interactive interface that feels intuitive and visually stunning across devices.", highlight: "visually stunning across devices", name: "Arefin", role: "COO, Ryne AI", photo: "/testimonial/Arefin.webp" },
+  { quote: "Our mobile apps now feel premium and engaging thanks to Buildlabs. The attention to detail in design and performance is exceptional.", highlight: "The attention to detail in design and performance is exceptional", name: "Olivia Martinez", role: "Marketing Manager", photo: "/testimonial/olivia.jpeg" },
 ];
+
+export const testimonialsIntro = {
+  title: { before: "What our", accent: "customers", after: "say" },
+  note: "unedited, promise",
+  video: "/apps/testimonialsVideo.mp4",
+};
+
+export const workflow = {
+  eyebrow: "Process",
+  title: ["From idea to launch,", "in six clear steps"],
+  steps: [
+    {
+      id: "discovery",
+      tab: "Discovery",
+      title: "Discovery & research",
+      body: "We start by understanding the business properly: how your buyers think, and what is stopping them from choosing you today.",
+      outputs: ["Discovery questionnaire", "Competitive audit"],
+    },
+    {
+      id: "strategy",
+      tab: "Strategy",
+      title: "Positioning & structure",
+      body: "One clear sentence about what you do, then every page and section ordered around the question a buyer is asking at that moment.",
+      outputs: ["Messaging doc", "Sitemap"],
+    },
+    {
+      id: "wireframes",
+      tab: "Wireframes",
+      title: "Wireframes",
+      body: "Grey boxes and real words. We agree on hierarchy and flow before a single colour is chosen, so styling never hides a structural problem.",
+      outputs: ["Clickable wireframes", "Copy in context"],
+    },
+    {
+      id: "design",
+      tab: "Visual design",
+      title: "Visual design",
+      body: "Type, colour and components, hung straight. Every screen is designed at desktop, tablet and mobile, in a Figma file you keep.",
+      outputs: ["Figma file", "Component library"],
+    },
+    {
+      id: "build",
+      tab: "Development",
+      title: "Development",
+      body: "Built in Next.js by the same person who designed it, so nothing is lost in handoff. Updates land on a preview link every 48 hours.",
+      outputs: ["Preview deploys", "Your repo, your code"],
+    },
+    {
+      id: "launch",
+      tab: "QA & launch",
+      title: "QA & launch",
+      body: "Tested on real devices, tuned until it scores in the green, then shipped. Two weeks of fixes after launch are included.",
+      outputs: ["Device QA", "Launch checklist"],
+    },
+  ],
+} as const;
 
 export const founder = {
   name: "Theo Ansell",
@@ -215,7 +244,7 @@ export const finalNote = {
   paragraphs: [
     { text: "Thanks for reading this far. Last thing I want to add is this." },
     {
-      text: "Plumbline is for founders who care how their product is read in the first nine seconds, and about what ",
+      text: "DesignLabs is for founders who care how their product is read in the first nine seconds, and about what ",
       marked: "good design",
       after: " does to conversion and trust.",
     },
@@ -223,4 +252,126 @@ export const finalNote = {
     { text: "You will not be handed to anyone. The person on the call is the person doing the work." },
   ],
   cta: { label: "Book a call", href: "https://cal.com/plumbline/intro" },
+};
+
+/**
+ * FAQ section on the home page.
+ *
+ * ⚠ PLACEHOLDER RATINGS — the platforms, scores and review counts below are
+ * stand-ins. Replace them with the studio's real profiles (and add `href`s)
+ * before this ships, or delete the entries to hide the cards.
+ */
+export const faq = {
+  title: ["Frequently Asked", "Questions"],
+  ratings: [
+    { id: "upwork", score: "5.0", reviews: 16, href: "" },
+    { id: "dribbble", score: "5.0", reviews: 10, href: "" },
+    { id: "contra", score: "5.0", reviews: 4, href: "" },
+  ],
+  primary: { label: "Start a Project", href: site.booking },
+  secondary: { label: "Work Portfolios", href: "/work" },
+  items: [
+    {
+      q: `What is ${site.name}?`,
+      a: `${site.name} is a design studio for products that are better than they look. We design and build the interface, the brand and the launch site, so the first impression matches the engineering behind it.`,
+    },
+    {
+      q: "What services do you offer?",
+      a: "Product UI for web and mobile apps, design systems, brand systems, launch sites and pricing pages. Take one as a fixed-price project, or mix them on a monthly retainer.",
+    },
+    {
+      q: "How do we get started?",
+      a: "Book a call or send a message. We talk through what you are building and what is in the way, then you get a fixed scope, price and timeline before any work starts.",
+    },
+    {
+      q: "How will we collaborate?",
+      a: "You get an update every 48 hours and the Figma file is yours from day one. Retainer clients also get a weekly call and daily replies in their own Slack.",
+    },
+    {
+      q: "How long does a project typically take?",
+      a: "A launch site takes 15–20 days, a brand system 20–25 days, and a product UI project 30–40 days. You get the exact timeline with the scope.",
+    },
+    {
+      q: "How much does it cost?",
+      a: "Prices are fixed and public: launch sites, brand systems and product UI each have a set price, plus a monthly retainer.",
+      link: { label: "See pricing", href: "/pricing" },
+    },
+  ],
+};
+
+/**
+ * The "how we work" bento on the home page. Each card's illustration is drawn
+ * in Impact.tsx and keyed to the `id` below.
+ *
+ * ⚠ `projects` is the count shown in the Proven Experience card — keep it in
+ * step with /src/content/works.ts (or with the real number, if the portfolio
+ * shows only a selection).
+ */
+export const impact = {
+  heading: { lead: "Design Decisions Grounded In", accent: "Business", tail: "Impact" },
+  intro:
+    "A transparent process, developer-ready systems, and direct collaboration — so ideas move smoothly from concept to shipped product.",
+  projects: "18+",
+  cards: [
+    {
+      id: "collab",
+      title: "Design Directly with Designers",
+      body: "You work directly with designers, no handoffs, no middle layers, no delays.",
+    },
+    {
+      id: "updates",
+      title: "Real-Time Project Updates",
+      body: "You get clear, real-time progress with regular updates and shared visibility.",
+    },
+    {
+      id: "handoff",
+      title: "Built for Seamless Execution",
+      body: "Every design is structured, documented, and ready for smooth development handoff.",
+      featured: true,
+    },
+    {
+      id: "tools",
+      title: "Industry-Leading Design Tools",
+      body: "We design with modern, industry-leading tools trusted by high-performing teams.",
+    },
+    {
+      id: "support",
+      title: "Ongoing & Dependable Support",
+      body: "We stay involved after delivery to support iterations, fixes, and future needs.",
+    },
+    {
+      id: "proven",
+      title: "Proven Experience",
+      body: "We've delivered 18+ projects for startups and growing products across industries.",
+    },
+    {
+      id: "nocode",
+      title: "No-Code Development",
+      body: "We use no-code and low-code tools to ship faster without sacrificing scalability.",
+    },
+  ],
+} as const;
+
+/**
+ * The services grid. Cards are title-only — the illustration carries the
+ * meaning — and each `id` maps to a drawing in Services.tsx.
+ */
+export const serviceGrid = {
+  eyebrow: "Services",
+  /* `accent` marks the words that take the brand colour. */
+  heading: [
+    { text: "From a rough idea to a shipped product — designed to " },
+    { text: "engage", accent: true },
+    { text: " and built to " },
+    { text: "convert", accent: true },
+    { text: "." },
+  ],
+  intro:
+    "From early-stage startups to scaling teams, we design and build the product, the site, and the system that holds them together.",
+  cards: [
+    { id: "saas", title: "SaaS Product Design" },
+    { id: "website", title: "Website Design" },
+    { id: "apps", title: "Web & Mobile Apps" },
+    { id: "system", title: "Design Systems" },
+  ],
 };

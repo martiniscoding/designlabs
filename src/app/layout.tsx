@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import { caveat, inter, phudu } from "@/lib/fonts";
+import { caveat, inter } from "@/lib/fonts";
 import ClientMotion from "@/components/ClientMotion";
 import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://plumbline.studio"),
-  title: "Plumbline — design for products that are better than they look",
+  title: "DesignLabs — design for products that are better than they look",
   description:
     "A design studio for technical founders. Product UI, brand systems and launch sites for dev tools and B2B software.",
   openGraph: {
-    title: "Plumbline",
+    title: "DesignLabs",
     description: "Design for products that are better than they look.",
     type: "website",
     locale: "en_GB",
@@ -20,7 +20,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${phudu.variable} ${caveat.variable}`}
+    <html lang="en" className={`${inter.variable} ${caveat.variable}`}
       data-motion="on"
     >
       <head>

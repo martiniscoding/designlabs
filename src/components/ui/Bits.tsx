@@ -38,7 +38,7 @@ export function Pill({
 export function Tick({ children }: { children: ReactNode }) {
   return (
     <li className="flex items-start gap-3 text-[0.9375rem] text-ink-2">
-      <span className="mt-0.5 shrink-0 text-accent">
+      <span className="mt-0.5 shrink-0 text-accent-ink">
         <CheckIcon />
       </span>
       {children}
