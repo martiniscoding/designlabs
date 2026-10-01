@@ -9,12 +9,12 @@ import { WorkIcon } from "@/components/Icons";
 /** The little keycap above the heading, drawn in isometric so it needs no asset. */
 function Keycap() {
   return (
-    <svg width="80" height="66" viewBox="0 0 80 66" aria-hidden="true" className="drop-shadow-[0_14px_14px_rgba(180,67,9,0.3)]">
+    <svg width="80" height="66" viewBox="0 0 80 66" aria-hidden="true" className="drop-shadow-[0_14px_14px_rgba(255,74,4,0.3)]">
       <g strokeLinejoin="round" strokeWidth="6">
-        <polygon points="8,24 40,41 40,56 8,39" fill="#c2410c" stroke="#c2410c" />
-        <polygon points="72,24 40,41 40,56 72,39" fill="#9a3412" stroke="#9a3412" />
-        <polygon points="40,7 72,24 40,41 8,24" fill="#f97316" stroke="#f97316" />
-        <polygon points="40,10 66,24 40,38 14,24" fill="#fb923c" stroke="#fb923c" strokeWidth="2" />
+        <polygon points="8,24 40,41 40,56 8,39" fill="#D63C00" stroke="#D63C00" />
+        <polygon points="72,24 40,41 40,56 72,39" fill="#AD3000" stroke="#AD3000" />
+        <polygon points="40,7 72,24 40,41 8,24" fill="#ff4a04" stroke="#ff4a04" />
+        <polygon points="40,10 66,24 40,38 14,24" fill="#FF733D" stroke="#FF733D" strokeWidth="2" />
       </g>
       {/* Unit square mapped onto the top face. */}
       <g transform="matrix(26 14 -26 14 40 24)" fill="none" stroke="#fff" strokeWidth="0.09" strokeLinecap="round" strokeLinejoin="round">

@@ -5,8 +5,7 @@ import { Container } from "@/components/Shell";
 const button =
   "group inline-flex items-center gap-5 rounded-2xl py-2 pr-2 pl-6 text-[1.0625rem] font-semibold tracking-[-0.02em] transition-[translate,box-shadow,background-color] duration-300 ease-[var(--ease-out-soft)] hover:-translate-y-0.5";
 const tile = "flex h-10 w-10 items-center justify-center rounded-xl transition-colors duration-300";
-/* The accent is bright enough that white on it is 2.8:1 — dark label, dark tile. */
-const tileOnAccent = `${tile} bg-ink/10 group-hover:bg-ink/15`;
+const tileOnAccent = `${tile} bg-white/20 group-hover:bg-white/30`;
 const tileOnWhite = `${tile} bg-hush group-hover:bg-line`;
 
 /**
@@ -54,7 +53,7 @@ export default function Hero() {
         >
           <a
             href={hero.primary.href}
-            className={`${button} bg-accent text-ink shadow-[0_14px_28px_-14px_var(--color-accent)] hover:shadow-[0_18px_32px_-14px_var(--color-accent)]`}
+            className={`${button} bg-accent text-white shadow-[0_14px_28px_-14px_var(--color-accent)] hover:shadow-[0_18px_32px_-14px_var(--color-accent)]`}
           >
             {hero.primary.label}
             <span className={tileOnAccent}>

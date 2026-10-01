@@ -9,14 +9,3 @@ export const inter = localFont({
   fallback: ["system-ui", "Helvetica Neue", "sans-serif"],
 });
 
-/** Handwriting, for the two scribbled accents in the testimonials heading. */
-export const caveat = localFont({
-  src: "../fonts/Caveat-Variable.woff2",
-  variable: "--font-caveat",
-  weight: "400 700",
-  display: "swap",
-  // Five captions, well below the fold — it must not compete with Inter for
-  // the critical path.
-  preload: false,
-  fallback: ["cursive"],
-});

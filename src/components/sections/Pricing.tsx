@@ -146,7 +146,7 @@ export default function Pricing() {
                 <p className="text-[0.8125rem] font-semibold uppercase tracking-[0.12em] text-white/75">
                   {tab.label}
                 </p>
-                <p className="display mt-2 text-[clamp(2.5rem,5.5vw,3.5rem)] leading-none text-white lining-nums tabular-nums">
+                <p className="display mt-2 text-[clamp(2.5rem,5.5vw,3.5rem)] leading-none text-accent lining-nums tabular-nums">
                   {fmt(total)}
                 </p>
               </div>
@@ -222,10 +222,10 @@ export default function Pricing() {
           </div>
 
           <div>
-            <div className="rounded-[var(--radius-card)] bg-accent-deep p-7">
-              <p className="wordmark text-white/60">{site.name}</p>
+            <div className="rounded-[var(--radius-card)] bg-accent p-7">
+              <p className="wordmark text-white/80">{site.name}</p>
               <div className="mt-16">
-                <p className="text-[0.8125rem] font-semibold uppercase tracking-[0.12em] text-white/75">
+                <p className="text-[0.9375rem] font-semibold uppercase tracking-[0.12em] text-white">
                   Retainer · {pricing.retainer.unit}
                 </p>
                 <p className="display mt-2 text-[clamp(2.5rem,5.5vw,3.5rem)] leading-none text-white lining-nums tabular-nums">

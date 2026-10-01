@@ -757,8 +757,11 @@ export default function Impact() {
           id="impact-title"
           className="max-w-[20ch] text-[clamp(1.75rem,3.2vw,2.5rem)] leading-[1.14] font-semibold tracking-[-0.035em] text-ink"
         >
-          {impact.heading.lead} <span className="text-accent">{impact.heading.accent}</span>{" "}
-          {impact.heading.tail}
+          {impact.heading.map((part, i) => (
+            <span key={i} className={"accent" in part && part.accent ? "text-accent" : undefined}>
+              {part.text}
+            </span>
+          ))}
         </h2>
         <p className="max-w-[40ch] text-[0.9375rem] leading-[1.6] text-muted lg:pt-2 lg:text-right">
           {impact.intro}

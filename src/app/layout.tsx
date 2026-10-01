@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { caveat, inter } from "@/lib/fonts";
+import { inter } from "@/lib/fonts";
 import ClientMotion from "@/components/ClientMotion";
 import "./globals.css";
 
@@ -20,7 +20,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${caveat.variable}`}
+    <html lang="en" className={inter.variable}
       data-motion="on"
     >
       <head>

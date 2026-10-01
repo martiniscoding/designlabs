@@ -39,7 +39,7 @@ export default async function Image() {
               style={{
                 width: 22,
                 height: 22,
-                backgroundColor: "#f97316",
+                backgroundColor: "#ff4a04",
                 clipPath: "polygon(50% 0%, 100% 34%, 50% 100%, 0% 34%)",
               }}
             />

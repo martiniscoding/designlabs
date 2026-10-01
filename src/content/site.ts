@@ -171,7 +171,13 @@ export const testimonials = [
 ];
 
 export const testimonialsIntro = {
-  title: { before: "What our", accent: "customers", after: "say" },
+  /* Two non-adjacent accent words; `underline` draws the hand-drawn swoosh. */
+  title: [
+    { text: "What", accent: true },
+    { text: " our " },
+    { text: "customers", accent: true, underline: true },
+    { text: " say" },
+  ],
   note: "unedited, promise",
   video: "/apps/testimonialsVideo.mp4",
 };
@@ -308,7 +314,13 @@ export const faq = {
  * shows only a selection).
  */
 export const impact = {
-  heading: { lead: "Design Decisions Grounded In", accent: "Business", tail: "Impact" },
+  /* Two non-adjacent accent words. */
+  heading: [
+    { text: "Design", accent: true },
+    { text: " Decisions Grounded In " },
+    { text: "Business", accent: true },
+    { text: " Impact" },
+  ],
   intro:
     "A transparent process, developer-ready systems, and direct collaboration — so ideas move smoothly from concept to shipped product.",
   projects: "18+",
@@ -373,5 +385,34 @@ export const serviceGrid = {
     { id: "website", title: "Website Design" },
     { id: "apps", title: "Web & Mobile Apps" },
     { id: "system", title: "Design Systems" },
+  ],
+};
+
+export const projects = {
+  eyebrow: "Projects",
+  /* Accent-highlighted words are rendered in the studio orange. */
+  title: [
+    [
+      { text: "Turning " },
+      { text: "Strategy", accent: true },
+      { text: " Into" },
+    ],
+    [
+      { text: "Real-World " },
+      { text: "Results", accent: true },
+    ],
+  ],
+  lead:
+    "A selection of projects where clear thinking, strong design, and " +
+    "business goals come together to deliver measurable impact.",
+  cta: { label: "See All Projects", href: "/work" },
+  /* Six works, each tagged with the kind of project it was. */
+  items: [
+    { slug: "fincrux", tag: "Dashboard Design" },
+    { slug: "pillo", tag: "Health Tracker App" },
+    { slug: "unicapp", tag: "Delivery App" },
+    { slug: "tessact-ai", tag: "Agency Landingpage" },
+    { slug: "fabhotels", tag: "Booking Landingpage" },
+    { slug: "chatdoc", tag: "Dashboard Design" },
   ],
 };

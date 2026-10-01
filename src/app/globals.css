@@ -16,14 +16,14 @@
   --color-muted: #575f6d;
   --color-faint: #838b98;
 
-  /* Two tiers, because a bright orange cannot do both jobs on a light page.
-     `accent` is the fill — bright, and it takes INK text, never white
-     (ink on it 5.55:1, white on it only 2.80:1). `accent-ink` is the same
-     hue pushed dark enough to be read as text on the shell (4.99:1).
-     `accent-deep` stays for the dark cards, where white text sits. */
-  --color-accent: #f97316;
-  --color-accent-ink: #b34309;
-  --color-accent-deep: #6f2c10;
+  /* One orange, everywhere. The CTAs set white on it — 3.37:1, chosen
+     for the look, so keep those labels semibold and 15px or larger.
+     `accent-ink` and `accent-deep` are kept as aliases so the existing
+     utilities still resolve, but they hold the same colour now: there is
+     exactly one orange on this site. */
+  --color-accent: #ff4a04;
+  --color-accent-ink: #ff4a04;
+  --color-accent-deep: #ff4a04;
 
   /* The highlight behind an emphasised phrase — soft straw, not a marker. */
   --color-mark: #ece4c9;
@@ -31,13 +31,13 @@
   /* shadcn-style aliases, used by components in components/ui. */
   --color-background: #fbfaf8;
   --color-foreground: #1e2430;
-  --color-primary: #b34309;
+  --color-primary: #ff4a04;
   --color-border: #e2e0da;
 
   /* One typeface site-wide: Inter, from the hero headline down to a caption.
-     Caveat is the single exception — the Dribbble wordmark in the FAQ. */
+     The only other face on the page is the system monospace, inside the
+     mock code editor in the process illustrations. */
   --font-sans: var(--font-inter), system-ui, sans-serif;
-  --font-hand: var(--font-caveat), cursive;
 
   --radius-panel: 28px;
   --radius-card: 24px;

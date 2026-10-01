@@ -15,33 +15,43 @@ export default function Testimonials() {
   const half = Math.ceil(testimonials.length / 2);
   const left = testimonials.slice(0, half);
   const right = testimonials.slice(half);
-  const t = testimonialsIntro.title;
+  const title = testimonialsIntro.title;
 
   return (
     <section id="testimonials">
       <div className="text-center">
         <h2 className="display relative mx-auto w-fit text-[clamp(2.75rem,7vw,5.5rem)]">
-          {t.before}{" "}
-          <span className="relative inline-block">
-            <span className="relative z-10 inline-block text-accent-ink">
-              {t.accent}
-            </span>
-            <svg
-              aria-hidden="true"
-              viewBox="0 0 300 24"
-              preserveAspectRatio="none"
-              className="absolute -bottom-[0.02em] left-0 h-[0.22em] w-full text-accent/35"
-            >
-              <path
-                d="M4 16C60 6 150 2 296 12"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="9"
-                strokeLinecap="round"
-              />
-            </svg>
-          </span>{" "}
-          {t.after}
+          {title.map((part, i) => {
+            if (!("accent" in part && part.accent)) {
+              return <span key={i}>{part.text}</span>;
+            }
+            if (!("underline" in part && part.underline)) {
+              return (
+                <span key={i} className="text-accent-ink">
+                  {part.text}
+                </span>
+              );
+            }
+            return (
+              <span key={i} className="relative inline-block">
+                <span className="relative z-10 inline-block text-accent-ink">{part.text}</span>
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 300 24"
+                  preserveAspectRatio="none"
+                  className="absolute -bottom-[0.02em] left-0 h-[0.22em] w-full text-accent/35"
+                >
+                  <path
+                    d="M4 16C60 6 150 2 296 12"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="9"
+                    strokeLinecap="round"
+                  />
+                </svg>
+              </span>
+            );
+          })}
           <span
             aria-hidden="true"
             className="absolute -right-2 -bottom-7 hidden text-[0.875rem] font-medium tracking-[-0.01em] text-muted md:block"

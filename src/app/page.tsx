@@ -1,7 +1,7 @@
 import Shell, { Container } from "@/components/Shell";
 import Hero from "@/components/sections/Hero";
 import TrustedBy from "@/components/sections/TrustedBy";
-import Showcase from "@/components/sections/Showcase";
+import Projects from "@/components/sections/Projects";
 import Services from "@/components/sections/Services";
 import Impact from "@/components/sections/Impact";
 import Testimonials from "@/components/sections/Testimonials";
@@ -16,7 +16,7 @@ export default function Page() {
     <Shell hero>
       <Hero />
       <TrustedBy />
-      <Showcase />
+      <Projects />
       <Container className="pb-4">
         <Divider label="Services" />
         <Services />

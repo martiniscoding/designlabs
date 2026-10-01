@@ -7,85 +7,13 @@ import { works, type Work } from "@/content/works";
 import { PhoneGroup } from "@/components/ui/IPhone";
 
 /* ------------------------------------------------------------------
-   Bento layout. The page is a stack of rows; each row is its own grid
-   with its OWN aspect ratio and column split, so the rhythm keeps
-   changing — a wide pair, then a tall full-width hero, then a bento
-   block of one big site beside two stacked apps. A row never leaves a
-   hole, and the packer works on any filtered subset.
+   One uniform grid: every project gets the same cell, two to a row.
 
-   Site shots are 16:10 cropped from the top, so every site cell is kept
-   between ~1.5 and ~1.9 wide; squarer than that and the page edges crop.
+   Two rather than three, because the site shots are full-page captures
+   — at three across the headline type inside them stops being legible.
+   Every cell is 16:10, which is the shots' own ratio; the app cells get
+   the same box and centre their phones inside it.
 ------------------------------------------------------------------- */
-type Cell = { work: Work; area?: string };
-type Row = { aspect: number; cols: string; rows?: string; cells: Cell[] };
-
-const cell = (work: Work, area?: string): Cell => ({ work, area });
-
-/* Row builders. `area` is a grid-area (row/col start/end), applied at md+. */
-const single = (w: Work): Row => ({ aspect: w.kind === "site" ? 2.45 : 1.8, cols: "1fr", cells: [cell(w)] });
-const pairL = (a: Work, b: Work): Row => ({ aspect: 3.33, cols: "1.25fr 1fr", cells: [cell(a), cell(b)] });
-const pairR = (a: Work, b: Work): Row => ({ aspect: 3.33, cols: "1fr 1.25fr", cells: [cell(a), cell(b)] });
-const duo = (a: Work, b: Work): Row => ({ aspect: 3.2, cols: "1fr 1fr", cells: [cell(a), cell(b)] });
-const trio = (a: Work, b: Work, c: Work): Row => ({ aspect: 3, cols: "1fr 1fr 1fr", cells: [cell(a), cell(b), cell(c)] });
-const appDuo = (a: Work, b: Work): Row => ({ aspect: 2.7, cols: "1fr 1fr", cells: [cell(a), cell(b)] });
-const siteApp = (s: Work, a: Work): Row => ({ aspect: 3.1, cols: "1.5fr 1fr", cells: [cell(s), cell(a)] });
-
-/* The bento moment: one big site spanning both rows, two apps stacked. */
-const comboL = (s: Work, x: Work, y: Work): Row => ({
-  aspect: 2.3,
-  cols: "2.4fr 1fr",
-  rows: "1fr 1fr",
-  cells: [cell(s, "1 / 1 / 3 / 2"), cell(x, "1 / 2 / 2 / 3"), cell(y, "2 / 2 / 3 / 3")],
-});
-const comboR = (s: Work, x: Work, y: Work): Row => ({
-  aspect: 2.3,
-  cols: "1fr 2.4fr",
-  rows: "1fr 1fr",
-  cells: [cell(s, "1 / 2 / 3 / 3"), cell(x, "1 / 1 / 2 / 2"), cell(y, "2 / 1 / 3 / 2")],
-});
-
-/**
- * Walk the list, emitting a varied sequence. Site rows cycle through a
- * left-heavy pair, an even duo, a right-heavy pair and a full-width hero;
- * every third row becomes a bento combo when a site and two apps are free.
- */
-function pack(list: Work[]): Row[] {
-  const sites = list.filter((w) => w.kind === "site");
-  const apps = list.filter((w) => w.kind === "app");
-  const rows: Row[] = [];
-  let step = 0;
-  let siteRow = 0;
-
-  while (sites.length || apps.length) {
-    const s = sites.length;
-    const a = apps.length;
-
-    if (s >= 1 && a >= 2 && step % 3 === 2) {
-      const build = step % 2 === 0 ? comboL : comboR;
-      rows.push(build(sites.shift()!, apps.shift()!, apps.shift()!));
-    } else if (s >= 2) {
-      const k = siteRow++ % 4;
-      const [p, q] = [sites.shift()!, sites.shift()!];
-      rows.push(k === 0 ? pairL(p, q) : k === 1 ? duo(p, q) : pairR(p, q));
-      if (k === 3) {
-        // The "single" slot of the cycle: give the second one its own row.
-        rows.pop();
-        sites.unshift(q);
-        rows.push(single(p));
-      }
-    } else if (a >= 3) {
-      rows.push(trio(apps.shift()!, apps.shift()!, apps.shift()!));
-    } else if (a >= 2) {
-      rows.push(appDuo(apps.shift()!, apps.shift()!));
-    } else if (s >= 1 && a >= 1) {
-      rows.push(siteApp(sites.shift()!, apps.shift()!));
-    } else {
-      rows.push(single((sites.length ? sites : apps).shift()!));
-    }
-    step++;
-  }
-  return rows;
-}
 
 const filters = [
   { id: "all", label: "All" },
@@ -94,7 +22,7 @@ const filters = [
 ] as const;
 type Filter = (typeof filters)[number]["id"];
 
-function Tile({ work, area }: { work: Work; area?: string }) {
+function Tile({ work, index }: { work: Work; index: number }) {
   const media =
     work.kind === "app" ? (
       <PhoneGroup screens={work.screens} alt={`${work.name} app`} />
@@ -103,7 +31,7 @@ function Tile({ work, area }: { work: Work; area?: string }) {
         src={work.src}
         alt={`${work.name} website`}
         fill
-        sizes="(min-width: 1152px) 760px, (min-width: 768px) 58vw, 100vw"
+        sizes="(min-width: 1152px) 530px, (min-width: 768px) 48vw, 100vw"
         className="object-cover object-top transition-transform duration-700 ease-[var(--ease-out-soft)] group-hover:scale-[1.03]"
       />
     );
@@ -118,14 +46,14 @@ function Tile({ work, area }: { work: Work; area?: string }) {
 
   const frame =
     "group block h-full rounded-[var(--radius-card)] border border-line bg-hush/70 p-2.5 shadow-[0_24px_50px_-38px_rgba(30,36,48,0.55)] outline-none transition-[translate,box-shadow,border-color,background-color] duration-500 ease-[var(--ease-out-soft)] hover:-translate-y-1.5 hover:border-ink/15 hover:bg-hush hover:shadow-[0_36px_60px_-30px_rgba(30,36,48,0.55)] focus-visible:ring-2 focus-visible:ring-accent active:translate-y-0 active:duration-150 lg:p-3";
-  const inner = `@container relative h-full overflow-hidden rounded-[14px] bg-card ring-1 ring-ink/5 md:aspect-auto ${
-    work.kind === "app" ? "aspect-[4/3]" : "aspect-[16/10]"
-  }`;
+  const inner =
+    "@container relative aspect-[16/10] overflow-hidden rounded-[14px] bg-card ring-1 ring-ink/5";
 
   return (
     <li
-      style={area ? ({ "--ga": area } as CSSProperties) : undefined}
-      className={area ? "md:[grid-area:var(--ga)]" : undefined}
+      className="work-in"
+      // Capped, or the last tiles in a long list arrive uncomfortably late.
+      style={{ animationDelay: `${Math.min(index, 9) * 55}ms` } as CSSProperties}
     >
       {work.kind === "site" ? (
         <a href={work.url} target="_blank" rel="noreferrer" className={frame}>
@@ -181,28 +109,12 @@ export default function WorkGrid() {
         </div>
       </div>
 
-      <div key={filter} className="space-y-4 md:space-y-5">
-        {pack(list).map((row, b) => (
-          <ul
-            key={b}
-            style={
-              {
-                "--a": row.aspect,
-                "--cols": row.cols,
-                ...(row.rows ? { "--rows": row.rows } : {}),
-                animationDelay: `${b * 70}ms`,
-              } as CSSProperties
-            }
-            className={`work-in grid gap-4 md:aspect-[var(--a)] md:gap-5 md:[grid-template-columns:var(--cols)] ${
-              row.rows ? "md:[grid-template-rows:var(--rows)]" : ""
-            }`}
-          >
-            {row.cells.map((c) => (
-              <Tile key={c.work.slug} work={c.work} area={c.area} />
-            ))}
-          </ul>
+      {/* `key` on the list restarts the entrance run when the filter changes. */}
+      <ul key={filter} className="grid gap-4 md:grid-cols-2 md:gap-5">
+        {list.map((work, i) => (
+          <Tile key={work.slug} work={work} index={i} />
         ))}
-      </div>
+      </ul>
     </div>
   );
 }
