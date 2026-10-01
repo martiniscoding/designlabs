@@ -3,7 +3,7 @@
 import { useId, useRef, useState, type KeyboardEvent, type ReactNode } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { workflow } from "@/content/site";
-import { CheckIcon, SparkIcon } from "@/components/Icons";
+import { CheckIcon } from "@/components/Icons";
 
 type StepId = (typeof workflow.steps)[number]["id"];
 
@@ -33,10 +33,16 @@ export default function Process() {
 
   return (
     <section id="process">
-      <h2 className="display text-[clamp(2.5rem,6vw,4.5rem)]">
-        {workflow.title[0]}
-        <br />
-        <span className="text-faint">{workflow.title[1]}</span>
+      <h2 className="display text-[clamp(2.5rem,6vw,4.5rem)] text-ink">
+        {workflow.title.map((line, i) => (
+          <span key={i} className="block">
+            {line.map((part, j) => (
+              <span key={j} className={"accent" in part && part.accent ? "text-accent" : undefined}>
+                {part.text}
+              </span>
+            ))}
+          </span>
+        ))}
       </h2>
 
       <div
@@ -94,10 +100,7 @@ export default function Process() {
               className="grid grid-cols-1 items-center gap-8 p-5 sm:gap-10 sm:p-10 lg:grid-cols-2 lg:gap-12 lg:p-14"
             >
               <div>
-                <span className="inline-flex items-center gap-2 rounded-full border border-line px-3.5 py-1.5 text-sm font-medium">
-                  <span className="text-accent-ink [&_svg]:h-4 [&_svg]:w-4">
-                    <SparkIcon />
-                  </span>
+                <span className="inline-flex items-center rounded-full border border-line px-3.5 py-1.5 text-sm font-medium">
                   Step {index + 1}
                 </span>
                 <h3 className="display mt-6 text-[clamp(1.5rem,2.6vw,2rem)]">

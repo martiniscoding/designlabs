@@ -184,7 +184,11 @@ export const testimonialsIntro = {
 
 export const workflow = {
   eyebrow: "Process",
-  title: ["From idea to launch,", "in six clear steps"],
+  /* Two non-adjacent accent words, one per line. */
+  title: [
+    [{ text: "From idea to " }, { text: "launch,", accent: true }],
+    [{ text: "in six clear " }, { text: "steps", accent: true }],
+  ],
   steps: [
     {
       id: "discovery",
@@ -415,4 +419,16 @@ export const projects = {
     { slug: "fabhotels", tag: "Booking Landingpage" },
     { slug: "chatdoc", tag: "Dashboard Design" },
   ],
+};
+
+/**
+ * The footer, which carries the last call to action. `clients` are slugs into
+ * works.ts whose marks sit inline in the heading — each needs a logo at
+ * /public/logos/<slug>.png.
+ */
+export const footer = {
+  heading: ["Turning rough ideas into", "products"],
+  blurb: "We design and build the product, the site, and the system that holds them together.",
+  cta: { label: "Schedule a Call", href: site.booking },
+  clients: ["fincrux", "ryne-ai", "chatdoc", "volnex"],
 };
