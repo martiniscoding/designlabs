@@ -323,18 +323,7 @@ function Card({
 }) {
   const Art = drawings[id];
   return (
-    <article className="scene group relative flex flex-col overflow-hidden rounded-[22px] border border-line/70 bg-card p-6 shadow-[0_1px_2px_rgba(30,36,48,0.04),0_16px_36px_-28px_rgba(30,36,48,0.4)] transition-[transform,box-shadow,border-color] duration-500 ease-[var(--ease-out-soft)] hover:-translate-y-1.5 hover:border-accent/30 hover:shadow-[0_1px_2px_rgba(30,36,48,0.05),0_30px_56px_-30px_rgba(232,88,41,0.28)] lg:p-8">
-      {/* Accent wash that blooms from the top-right on hover. */}
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute -right-16 -top-16 h-44 w-44 rounded-full bg-accent/14 opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100"
-      />
-      {/* A hairline that draws across the top edge on hover. */}
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-0 h-px origin-left scale-x-0 bg-gradient-to-r from-transparent via-accent to-transparent transition-transform duration-700 ease-[var(--ease-out-soft)] group-hover:scale-x-100"
-      />
-
+    <article className="scene group relative flex flex-col overflow-hidden rounded-[22px] border border-line/70 bg-card p-6 shadow-[0_1px_2px_rgba(30,36,48,0.04),0_16px_36px_-28px_rgba(30,36,48,0.4)] transition-[transform,box-shadow] duration-500 ease-[var(--ease-out-soft)] hover:-translate-y-1.5 hover:shadow-[0_1px_2px_rgba(30,36,48,0.05),0_30px_56px_-30px_rgba(30,36,48,0.3)] lg:p-8">
       <div className="relative flex items-start justify-between gap-4">
         <div>
           <span className="text-[0.8125rem] font-semibold tabular-nums text-faint transition-colors duration-500 group-hover:text-accent">
