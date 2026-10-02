@@ -403,7 +403,7 @@ export const serviceGrid = {
       id: "website",
       title: "Website Design",
       blurb: "Marketing sites that load fast, read clearly, and turn visitors into leads.",
-      tags: ["Landing pages", "Webflow", "SEO-ready"],
+      tags: ["Landing pages", "Webflow", "SEO ready"],
     },
     {
       id: "apps",
