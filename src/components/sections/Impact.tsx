@@ -1,5 +1,6 @@
 import type { CSSProperties, ReactNode } from "react";
 import { impact } from "@/content/site";
+import { SectionLabel } from "@/components/ui/Bits";
 
 /* ------------------------------------------------------------------
    "How we work" bento.
@@ -752,18 +753,21 @@ function Card({ id }: { id: string }) {
 export default function Impact() {
   return (
     <section id="impact" aria-labelledby="impact-title">
-      <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between lg:gap-12">
-        <h2
-          id="impact-title"
-          className="max-w-[20ch] text-[clamp(1.75rem,3.2vw,2.5rem)] leading-[1.14] font-semibold tracking-[-0.035em] text-ink"
-        >
-          {impact.heading.map((part, i) => (
-            <span key={i} className={"accent" in part && part.accent ? "text-accent" : undefined}>
-              {part.text}
-            </span>
-          ))}
-        </h2>
-        <p className="max-w-[40ch] text-[0.9375rem] leading-[1.6] text-muted lg:pt-2 lg:text-right">
+      <SectionLabel>{impact.eyebrow}</SectionLabel>
+      {/* The label sits above the row, so the headline and the paragraph
+          beside it start on exactly the same line. */}
+      <div className="mt-5 grid gap-8 lg:grid-cols-[1.25fr_1fr] lg:items-start lg:gap-16">
+          <h2
+            id="impact-title"
+            className="section-title max-w-[20ch] text-ink"
+          >
+            {impact.heading.map((part, i) => (
+              <span key={i} className={"accent" in part && part.accent ? "text-accent" : undefined}>
+                {part.text}
+              </span>
+            ))}
+          </h2>
+        <p className="section-sub">
           {impact.intro}
         </p>
       </div>

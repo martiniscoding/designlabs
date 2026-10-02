@@ -62,7 +62,7 @@ export default function Showcase() {
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
         <Link
           href="/work"
-          aria-label={`See all work — ${works.length} projects`}
+          aria-label={`See all work, ${works.length} projects`}
           className="group/cta pointer-events-auto relative inline-flex items-center gap-5 rounded-2xl bg-accent py-2 pr-2 pl-7 text-[1.0625rem] font-semibold tracking-[-0.02em] text-ink ring-1 ring-ink/10 transition-[translate,box-shadow] duration-300 ease-[var(--ease-out-soft)] hover:-translate-y-0.5 hover:shadow-[0_26px_50px_-18px_rgba(30,36,48,0.55)] shadow-[0_20px_44px_-18px_rgba(30,36,48,0.5)]"
         >
           {/* Sitting on top of the artwork, it needs its own light behind it:

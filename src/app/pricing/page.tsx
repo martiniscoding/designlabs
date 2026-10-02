@@ -5,7 +5,7 @@ import Footer from "@/components/sections/Footer";
 import { pricingTeaser } from "@/content/site";
 
 export const metadata: Metadata = {
-  title: "Pricing — DesignLabs",
+  title: "Pricing | DesignLabs",
   description:
     "Fixed prices for launch sites, brand systems and product UI, plus a monthly retainer. The numbers are on the page.",
 };
@@ -16,10 +16,14 @@ export default function PricingPage() {
       <Container className="pb-4">
         <div className="mb-10 lg:mb-14">
           <p className="eyebrow">{pricingTeaser.eyebrow}</p>
-          <h1 className="display mt-4 max-w-[18ch] text-[clamp(2.25rem,5vw,3.75rem)]">
-            {pricingTeaser.title}
+          <h1 className="section-title mt-4 max-w-[18ch]">
+            {pricingTeaser.title.map((part, i) => (
+              <span key={i} className={"accent" in part && part.accent ? "text-accent" : undefined}>
+                {part.text}
+              </span>
+            ))}
           </h1>
-          <p className="mt-5 max-w-[52ch] text-[1.0625rem] text-muted">{pricingTeaser.body}</p>
+          <p className="section-sub mt-5">{pricingTeaser.body}</p>
         </div>
         <Pricing />
         <Footer />

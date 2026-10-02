@@ -80,7 +80,7 @@ export default function Contact() {
     ]
       .filter((line) => line !== null)
       .join("\n");
-    const subject = `${type} — ${company || name}`;
+    const subject = `${type}: ${company || name}`;
     window.location.href = `mailto:${site.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     setSent(true);
   };
@@ -117,14 +117,14 @@ export default function Contact() {
             Booking projects for next month
           </p>
 
-          <h2 className="display mt-6 text-[clamp(2.25rem,4.4vw,3.5rem)] leading-[1]">
+          <h2 className="section-title mt-6">
             Let&rsquo;s make it
             <br />
             <span className="text-faint">look the part.</span>
           </h2>
           <p className="mt-5 max-w-[42ch] text-[1.0625rem] text-muted">
             Tell me what you&rsquo;re building and where it&rsquo;s stuck. You&rsquo;ll get a
-            straight answer on whether I can help — usually the same day.
+            straight answer on whether I can help, usually the same day.
           </p>
 
           <ul className="mt-10 space-y-3">

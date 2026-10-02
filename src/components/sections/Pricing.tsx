@@ -98,7 +98,7 @@ export default function Pricing() {
         <div className="grid gap-10 lg:grid-cols-[1.1fr_1fr]">
           <div>
             <div className="flex flex-wrap items-center gap-3">
-              <h2 className="display text-[2rem] leading-none">{tab.name}</h2>
+              <h2 className="card-title">{tab.name}</h2>
               <span className="inline-flex items-center gap-1.5 rounded-full border border-line px-3 py-1.5 text-[0.8125rem] text-muted">
                 <ClockIcon />
                 {tab.timeline}
@@ -177,7 +177,7 @@ export default function Pricing() {
       <div className="rounded-[var(--radius-panel)] border border-line/70 bg-card p-6 shadow-[0_1px_2px_rgba(30,36,48,0.04),0_18px_40px_-34px_rgba(30,36,48,0.4)] lg:p-10">
         <div className="grid gap-10 lg:grid-cols-[1.1fr_1fr]">
           <div>
-            <h2 className="display text-[2rem] leading-none">{pricing.retainer.name}</h2>
+            <h2 className="card-title">{pricing.retainer.name}</h2>
             <div className="mt-7 flex items-center gap-4 rounded-[18px] bg-hush/70 px-5 py-4">
               <div className="flex items-center gap-1 rounded-full bg-hush p-1">
                 <button

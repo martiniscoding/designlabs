@@ -4,6 +4,7 @@ import { useId, useRef, useState, type KeyboardEvent, type ReactNode } from "rea
 import { AnimatePresence, motion } from "framer-motion";
 import { workflow } from "@/content/site";
 import { CheckIcon } from "@/components/Icons";
+import { SectionLabel } from "@/components/ui/Bits";
 
 type StepId = (typeof workflow.steps)[number]["id"];
 
@@ -33,7 +34,8 @@ export default function Process() {
 
   return (
     <section id="process">
-      <h2 className="display text-[clamp(2.5rem,6vw,4.5rem)] text-ink">
+      <SectionLabel>{workflow.eyebrow}</SectionLabel>
+      <h2 className="section-title mt-5 text-ink">
         {workflow.title.map((line, i) => (
           <span key={i} className="block">
             {line.map((part, j) => (
@@ -103,10 +105,10 @@ export default function Process() {
                 <span className="inline-flex items-center rounded-full border border-line px-3.5 py-1.5 text-sm font-medium">
                   Step {index + 1}
                 </span>
-                <h3 className="display mt-6 text-[clamp(1.5rem,2.6vw,2rem)]">
+                <h3 className="card-title mt-6">
                   {step.title}
                 </h3>
-                <p className="mt-4 max-w-[46ch] text-[1.0625rem] leading-[1.6] text-muted">
+                <p className="section-sub mt-4">
                   {step.body}
                 </p>
                 <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-3">

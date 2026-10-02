@@ -5,6 +5,7 @@ import { projects } from "@/content/site";
 import { workBySlug, type Work } from "@/content/works";
 import { PhoneGroup } from "@/components/ui/IPhone";
 import { Container } from "@/components/Shell";
+import { SectionLabel } from "@/components/ui/Bits";
 
 /**
  * A curated projects grid: an eyebrow + accent headline on the left, the
@@ -13,14 +14,17 @@ import { Container } from "@/components/Shell";
  * with the shot filling the panel below.
  */
 export default function Projects() {
+  /* No bottom padding on purpose: the Container below supplies the page's
+     standard gap, and the two were stacking into a 272px hole. */
   return (
-    <section id="projects" className="py-20 lg:py-28">
+    <section id="projects" className="pt-20 lg:pt-28">
       <Container>
         {/* Header: headline left, blurb + CTA right. */}
-        <div className="grid gap-8 lg:grid-cols-[1.3fr_1fr] lg:items-start lg:gap-16">
-          <div>
-            <p className="eyebrow">{projects.eyebrow}</p>
-            <h2 className="display mt-4 text-[clamp(2rem,4.6vw,3.25rem)] leading-[1.08]">
+        <SectionLabel>{projects.eyebrow}</SectionLabel>
+        {/* The label sits above the row, so the headline and the blurb
+            beside it start on exactly the same line. */}
+        <div className="mt-5 grid gap-8 lg:grid-cols-[1.25fr_1fr] lg:items-start lg:gap-16">
+            <h2 className="section-title">
               {projects.title.map((line, i) => (
                 <span key={i} className="block">
                   {line.map((part, j) => (
@@ -31,10 +35,9 @@ export default function Projects() {
                 </span>
               ))}
             </h2>
-          </div>
 
-          <div className="lg:pt-3">
-            <p className="max-w-[42ch] text-[1.0625rem] leading-[1.6] text-muted">{projects.lead}</p>
+          <div>
+            <p className="section-sub">{projects.lead}</p>
             <Link
               href={projects.cta.href}
               className="group mt-6 inline-flex items-center gap-3 rounded-full bg-ink py-2 pr-2 pl-5 text-[0.9375rem] font-medium text-white transition-colors duration-300 hover:bg-ink-2"

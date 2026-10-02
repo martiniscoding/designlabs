@@ -97,6 +97,35 @@ body {
   text-wrap: balance;
 }
 
+/* Every section headline on the site is this one size. Only the hero is
+   allowed to be bigger, and only the cards inside a section smaller. */
+@utility section-title {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: clamp(2rem, 4.6vw, 3.25rem);
+  letter-spacing: -0.04em;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+/* The paragraph that sits beside or under a section headline. The measure
+   is part of the rule, so every one of them wraps to the same width. */
+@utility section-sub {
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  max-width: 42ch;
+  color: var(--color-muted);
+}
+
+/* A card or step title inside a section — one step down from the headline. */
+@utility card-title {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
 /* The felt-tip highlight behind a phrase. */
 @utility marker {
   background-image: linear-gradient(

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { testimonials, testimonialsIntro } from "@/content/site";
+import { SectionLabel } from "@/components/ui/Bits";
 
 type Review = (typeof testimonials)[number];
 
@@ -20,35 +21,15 @@ export default function Testimonials() {
   return (
     <section id="testimonials">
       <div className="text-center">
-        <h2 className="display relative mx-auto w-fit text-[clamp(2.75rem,7vw,5.5rem)]">
+        <SectionLabel>{testimonialsIntro.eyebrow}</SectionLabel>
+        <h2 className="section-title relative mx-auto mt-5 w-fit">
           {title.map((part, i) => {
             if (!("accent" in part && part.accent)) {
               return <span key={i}>{part.text}</span>;
             }
-            if (!("underline" in part && part.underline)) {
-              return (
-                <span key={i} className="text-accent-ink">
-                  {part.text}
-                </span>
-              );
-            }
             return (
-              <span key={i} className="relative inline-block">
-                <span className="relative z-10 inline-block text-accent-ink">{part.text}</span>
-                <svg
-                  aria-hidden="true"
-                  viewBox="0 0 300 24"
-                  preserveAspectRatio="none"
-                  className="absolute -bottom-[0.02em] left-0 h-[0.22em] w-full text-accent/35"
-                >
-                  <path
-                    d="M4 16C60 6 150 2 296 12"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="9"
-                    strokeLinecap="round"
-                  />
-                </svg>
+              <span key={i} className="text-accent-ink">
+                {part.text}
               </span>
             );
           })}

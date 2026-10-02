@@ -8,8 +8,6 @@ import Testimonials from "@/components/sections/Testimonials";
 import Process from "@/components/sections/Process";
 import Faq from "@/components/sections/Faq";
 import Footer from "@/components/sections/Footer";
-import { Divider } from "@/components/ui/Bits";
-import { workflow } from "@/content/site";
 
 export default function Page() {
   return (
@@ -17,16 +15,13 @@ export default function Page() {
       <Hero />
       <TrustedBy />
       <Projects />
-      <Container className="pb-4">
-        <Divider label="Services" />
+      {/* The sections carry their own rhythm now that nothing separates
+          them: one gap, set here, between every pair. */}
+      <Container className="flex flex-col gap-28 pt-28 pb-4 lg:gap-40 lg:pt-40">
         <Services />
-        <Divider label="How we work" />
         <Impact />
-        <Divider label={workflow.eyebrow} />
         <Process />
-        <Divider label="Testimonials" />
         <Testimonials />
-        <Divider label="FAQ" />
         <Faq />
         <Footer />
       </Container>

@@ -1,38 +1,15 @@
-import Image from "next/image";
 import Link from "next/link";
 import { footer, nav, site } from "@/content/site";
-import { workBySlug } from "@/content/works";
 import { CallIcon, Mark, MessageIcon } from "@/components/Icons";
 
 /* ------------------------------------------------------------------
    The closing panel: a dark card carrying the last call to action, the
    mark, and the legal line. Two tones of dark, one nested in the other,
    so the call to action reads as a card on a card.
-
-   Client marks sit on white tiles rather than bare: two of the six are
-   dark or outlined and would vanish straight onto the panel.
 ------------------------------------------------------------------- */
 
 const iconButton =
   "flex h-11 w-11 items-center justify-center rounded-2xl bg-white/10 sm:h-12 sm:w-12 text-white ring-1 ring-white/15 transition-colors duration-300 hover:bg-white/20";
-
-function ClientMark({ slug }: { slug: string }) {
-  const client = workBySlug(slug);
-  return (
-    <span
-      title={client.name}
-      className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white shadow-[0_8px_20px_-12px_rgba(0,0,0,0.6)] ring-1 ring-white/20 sm:h-12 sm:w-12"
-    >
-      <Image
-        src={`/logos/${slug}.png`}
-        alt=""
-        width={128}
-        height={128}
-        className="h-7 w-7 object-contain sm:h-8 sm:w-8"
-      />
-    </span>
-  );
-}
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -44,24 +21,12 @@ export default function Footer() {
         {/* The call to action, a shade lighter than the panel around it. */}
         <div className="rounded-[calc(var(--radius-panel)-8px)] bg-white/[0.06] p-6 ring-1 ring-white/10 sm:p-8 lg:p-9">
           <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between lg:gap-12">
-            {/* The break is set here rather than left to the box width: the
-                marks have to sit beside the second line, and a `max-w` tight
-                enough to force two lines is also tight enough to push them
-                onto a third. */}
-            <h2 className="display text-[clamp(1.75rem,3.2vw,2.75rem)] leading-[1.12] text-white">
-              <span className="block">{footer.heading[0]}</span>
-              <span className="mt-1.5 flex flex-wrap items-center gap-x-4 gap-y-3">
-                <span>{footer.heading[1]}</span>
-                <span className="flex items-center gap-2">
-                  {footer.clients.map((slug) => (
-                    <ClientMark key={slug} slug={slug} />
-                  ))}
-                </span>
-              </span>
+            <h2 className="section-title max-w-[16ch] text-white">
+              {footer.heading[0]} {footer.heading[1]}
             </h2>
 
             <div className="shrink-0 lg:text-right">
-              <p className="max-w-[30ch] text-[0.9375rem] leading-[1.6] text-white/65 lg:ml-auto">
+              <p className="section-sub !text-white/65 lg:ml-auto">
                 {footer.blurb}
               </p>
               <div className="mt-6 flex flex-wrap items-center gap-2.5 sm:flex-nowrap lg:justify-end">

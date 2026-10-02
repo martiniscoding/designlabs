@@ -1,5 +1,7 @@
 import type { CSSProperties, ReactNode } from "react";
+import { ArrowUpRight } from "lucide-react";
 import { serviceGrid } from "@/content/site";
+import { SectionLabel } from "@/components/ui/Bits";
 
 /* ------------------------------------------------------------------
    Services: four equal cards, each carrying a wireframe of the thing
@@ -306,18 +308,69 @@ const drawings: Record<string, () => ReactNode> = {
   system: Systems,
 };
 
-function Card({ id, title }: { id: string; title: string }) {
+function Card({
+  id,
+  title,
+  blurb,
+  tags,
+  index,
+}: {
+  id: string;
+  title: string;
+  blurb: string;
+  tags: string[];
+  index: number;
+}) {
   const Art = drawings[id];
   return (
-    <article className="scene overflow-hidden rounded-[22px] border border-line/70 bg-card p-6 shadow-[0_1px_2px_rgba(30,36,48,0.04),0_16px_36px_-28px_rgba(30,36,48,0.4)] transition-shadow duration-500 hover:shadow-[0_1px_2px_rgba(30,36,48,0.05),0_26px_50px_-30px_rgba(30,36,48,0.5)] lg:p-8">
-      <h3 className="text-[clamp(1.125rem,1.7vw,1.375rem)] font-semibold tracking-[-0.02em] text-ink">
-        {title}
-      </h3>
+    <article className="scene group relative flex flex-col overflow-hidden rounded-[22px] border border-line/70 bg-card p-6 shadow-[0_1px_2px_rgba(30,36,48,0.04),0_16px_36px_-28px_rgba(30,36,48,0.4)] transition-[transform,box-shadow,border-color] duration-500 ease-[var(--ease-out-soft)] hover:-translate-y-1.5 hover:border-accent/30 hover:shadow-[0_1px_2px_rgba(30,36,48,0.05),0_30px_56px_-30px_rgba(232,88,41,0.28)] lg:p-8">
+      {/* Accent wash that blooms from the top-right on hover. */}
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-16 -top-16 h-44 w-44 rounded-full bg-accent/14 opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100"
+      />
+      {/* A hairline that draws across the top edge on hover. */}
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 top-0 h-px origin-left scale-x-0 bg-gradient-to-r from-transparent via-accent to-transparent transition-transform duration-700 ease-[var(--ease-out-soft)] group-hover:scale-x-100"
+      />
+
+      <div className="relative flex items-start justify-between gap-4">
+        <div>
+          <span className="text-[0.8125rem] font-semibold tabular-nums text-faint transition-colors duration-500 group-hover:text-accent">
+            {String(index + 1).padStart(2, "0")}
+          </span>
+          <h3 className="card-title mt-2 text-ink">
+            {title}
+          </h3>
+        </div>
+        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-line text-ink-2 transition-[background-color,border-color,color,transform] duration-500 ease-[var(--ease-out-soft)] group-hover:border-accent group-hover:bg-accent group-hover:text-white group-hover:-translate-y-0.5 group-hover:translate-x-0.5">
+          <ArrowUpRight size={17} />
+        </span>
+      </div>
+
+      <p className="relative mt-3 max-w-[42ch] text-[0.9375rem] leading-[1.55] text-muted">
+        {blurb}
+      </p>
+
       {/* The drawing runs past the bottom edge and is clipped, so each card
           reads as a window onto something larger. */}
-      <div className="relative mt-6 aspect-[480/300] lg:mt-8">
+      <div className="relative mt-6 aspect-[480/270] lg:mt-7">
         <Art />
       </div>
+
+      {/* Deliverable chips, staggered up on hover. */}
+      <ul className="relative mt-auto flex flex-wrap gap-2 pt-6">
+        {tags.map((tag, i) => (
+          <li
+            key={tag}
+            style={vars({ "--d": `${i * 70}ms` })}
+            className="rounded-full border border-line/80 bg-hush/60 px-3 py-1 text-[0.8125rem] font-medium text-ink-2 transition-[background-color,border-color,color,transform] duration-500 ease-[var(--ease-out-soft)] [transition-delay:var(--d)] group-hover:-translate-y-0.5 group-hover:border-accent/25 group-hover:bg-accent/[0.07] group-hover:text-accent-ink"
+          >
+            {tag}
+          </li>
+        ))}
+      </ul>
     </article>
   );
 }
@@ -325,14 +378,13 @@ function Card({ id, title }: { id: string; title: string }) {
 export default function Services() {
   return (
     <section id="services" aria-labelledby="services-title">
-      <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between lg:gap-14">
-        <div>
-          <p className="inline-flex rounded-full bg-card px-4 py-1.5 text-[0.75rem] font-semibold tracking-[0.12em] text-ink uppercase ring-1 ring-ink/5">
-            {serviceGrid.eyebrow}
-          </p>
+      <SectionLabel>{serviceGrid.eyebrow}</SectionLabel>
+      {/* The label sits above the row, so the headline and the paragraph
+          beside it start on exactly the same line. */}
+      <div className="mt-5 grid gap-8 lg:grid-cols-[1.25fr_1fr] lg:items-start lg:gap-16">
           <h2
             id="services-title"
-            className="mt-5 max-w-[22ch] text-[clamp(1.75rem,3.4vw,2.75rem)] leading-[1.14] font-semibold tracking-[-0.035em] text-ink"
+            className="section-title max-w-[22ch] text-ink"
           >
             {serviceGrid.heading.map((part, i) =>
               part.accent ? (
@@ -344,15 +396,14 @@ export default function Services() {
               ),
             )}
           </h2>
-        </div>
-        <p className="max-w-[38ch] text-[0.9375rem] leading-[1.6] text-muted lg:pb-2">
+        <p className="section-sub">
           {serviceGrid.intro}
         </p>
       </div>
 
       <div className="mt-10 grid gap-3.5 lg:mt-14 lg:grid-cols-2">
-        {serviceGrid.cards.map((c) => (
-          <Card key={c.id} id={c.id} title={c.title} />
+        {serviceGrid.cards.map((c, i) => (
+          <Card key={c.id} id={c.id} title={c.title} blurb={c.blurb} tags={c.tags} index={i} />
         ))}
       </div>
     </section>

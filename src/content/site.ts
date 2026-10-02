@@ -9,8 +9,8 @@ export const DEMO_CONTENT = true;
 export const site = {
   name: "DesignLabs",
   tagline: "Design for products that are better than they look",
-  email: "theo@plumbline.studio",
-  booking: "https://cal.com/plumbline/intro",
+  email: "hello@designlabs.studio",
+  booking: "https://cal.com/designlabs/intro",
 };
 
 export const nav: {
@@ -28,10 +28,10 @@ export const nav: {
 export const hero = {
   /* One entry per line. The full stop after the last line is set in the
      accent by the component. */
-  headline: ["Design for products", "better than they look"],
+  headline: ["Design that makes", "your product stand out"],
   sub:
-    "Product UI, brand systems and launch sites for dev tools and B2B " +
-    "software. One designer, who wrote production code for six years.",
+    "A product design studio for startups and SaaS — interfaces, brand " +
+    "systems and websites that earn trust at first glance.",
   primary: { label: "Book a call", href: "https://cal.com/plumbline/intro" },
   secondary: { label: "See the work", href: "#work" },
 };
@@ -49,7 +49,7 @@ export const trustedBy = {
 export const problem = {
   eyebrow: "Where it goes wrong",
   lead: "You shipped something genuinely hard. Then you sent the link to an investor, they looked at it for about nine seconds, and priced it like a side project.",
-  prefix: "There's a word for it —",
+  prefix: "There's a word for it:",
   word: "UNDERSOLD",
   bullets: ["Not the engineering", "Not the pricing", "The nine seconds"],
   close: {
@@ -60,7 +60,7 @@ export const problem = {
 };
 
 export const services = [
-  { title: "Product UI", body: "Dashboards, settings, onboarding — the screens that decide whether people stay." },
+  { title: "Product UI", body: "Dashboards, settings, onboarding: the screens that decide whether people stay." },
   { title: "Design systems", body: "Tokens, components and docs your engineers pull straight into the codebase." },
   { title: "Brand systems", body: "A mark, a palette and typography that survive contact with a real product." },
   { title: "Launch sites", body: "One page that explains what you built and asks for the meeting." },
@@ -171,11 +171,12 @@ export const testimonials = [
 ];
 
 export const testimonialsIntro = {
-  /* Two non-adjacent accent words; `underline` draws the hand-drawn swoosh. */
+  eyebrow: "Testimonials",
+  /* Two non-adjacent accent words, set like the rest of the line. */
   title: [
     { text: "What", accent: true },
     { text: " our " },
-    { text: "customers", accent: true, underline: true },
+    { text: "customers", accent: true },
     { text: " say" },
   ],
   note: "unedited, promise",
@@ -242,7 +243,12 @@ export const founder = {
 
 export const pricingTeaser = {
   eyebrow: "Pricing",
-  title: "Fixed price, written down before we start.",
+  /* Two non-adjacent accent words, to match the rest of the site. */
+  title: [
+    { text: "Fixed", accent: true },
+    { text: " price, written down before we " },
+    { text: "start.", accent: true },
+  ],
   body:
     "Three project shapes and one retainer, with the numbers on the page. " +
     "No discovery call needed to find out what it costs.",
@@ -272,6 +278,7 @@ export const finalNote = {
  * before this ships, or delete the entries to hide the cards.
  */
 export const faq = {
+  eyebrow: "FAQ",
   title: ["Frequently Asked", "Questions"],
   ratings: [
     { id: "upwork", score: "5.0", reviews: 16, href: "" },
@@ -279,7 +286,7 @@ export const faq = {
     { id: "contra", score: "5.0", reviews: 4, href: "" },
   ],
   primary: { label: "Start a Project", href: site.booking },
-  secondary: { label: "Work Portfolios", href: "/work" },
+  secondary: { label: "See Our Work", href: "/work" },
   items: [
     {
       q: `What is ${site.name}?`,
@@ -318,6 +325,7 @@ export const faq = {
  * shows only a selection).
  */
 export const impact = {
+  eyebrow: "How we work",
   /* Two non-adjacent accent words. */
   heading: [
     { text: "Design", accent: true },
@@ -376,7 +384,7 @@ export const serviceGrid = {
   eyebrow: "Services",
   /* `accent` marks the words that take the brand colour. */
   heading: [
-    { text: "From a rough idea to a shipped product — designed to " },
+    { text: "From a rough idea to a shipped product, designed to " },
     { text: "engage", accent: true },
     { text: " and built to " },
     { text: "convert", accent: true },
@@ -385,10 +393,30 @@ export const serviceGrid = {
   intro:
     "From early-stage startups to scaling teams, we design and build the product, the site, and the system that holds them together.",
   cards: [
-    { id: "saas", title: "SaaS Product Design" },
-    { id: "website", title: "Website Design" },
-    { id: "apps", title: "Web & Mobile Apps" },
-    { id: "system", title: "Design Systems" },
+    {
+      id: "saas",
+      title: "SaaS Product Design",
+      blurb: "Dashboards and complex flows made obvious, so users act without a manual.",
+      tags: ["Dashboards", "Onboarding", "Data UX"],
+    },
+    {
+      id: "website",
+      title: "Website Design",
+      blurb: "Marketing sites that load fast, read clearly, and turn visitors into leads.",
+      tags: ["Landing pages", "Webflow", "SEO-ready"],
+    },
+    {
+      id: "apps",
+      title: "Web & Mobile Apps",
+      blurb: "End-to-end product design, from the first screen to the shipped build.",
+      tags: ["iOS & Android", "Prototyping", "Handoff"],
+    },
+    {
+      id: "system",
+      title: "Design Systems",
+      blurb: "Tokens, components and docs your engineers pull straight into the codebase.",
+      tags: ["Tokens", "Components", "Docs"],
+    },
   ],
 };
 
@@ -415,8 +443,8 @@ export const projects = {
     { slug: "fincrux", tag: "Dashboard Design" },
     { slug: "pillo", tag: "Health Tracker App" },
     { slug: "unicapp", tag: "Delivery App" },
-    { slug: "tessact-ai", tag: "Agency Landingpage" },
-    { slug: "fabhotels", tag: "Booking Landingpage" },
+    { slug: "tessact-ai", tag: "Agency Landing Page" },
+    { slug: "fabhotels", tag: "Booking Landing Page" },
     { slug: "chatdoc", tag: "Dashboard Design" },
   ],
 };

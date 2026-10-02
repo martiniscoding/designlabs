@@ -67,7 +67,7 @@ export const defaultContent: HowWeWorkContent = {
   headingAccent: "Business",
   headingTail: "Impact",
   intro:
-    "A transparent process, developer-ready systems, and direct collaboration — so ideas move smoothly from concept to shipped product.",
+    "A transparent process, developer-ready systems, and direct collaboration, so ideas move smoothly from concept to shipped product.",
   projects: "50+",
   cards: [
     {

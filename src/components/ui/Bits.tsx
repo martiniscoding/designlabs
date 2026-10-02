@@ -1,14 +1,15 @@
 import type { ReactNode } from "react";
 import { ArrowIcon, CheckIcon } from "../Icons";
 
-/** The recurring device: a hairline rule with a small grey label centred in it. */
-export function Divider({ label }: { label: string }) {
+/**
+ * The small white capsule that names a section, sitting directly above its
+ * heading. Every section uses this one, so they stay identical.
+ */
+export function SectionLabel({ children }: { children: ReactNode }) {
   return (
-    <div className="my-16 flex items-center gap-6 lg:my-24">
-      <span className="h-px flex-1 bg-line" />
-      <span className="eyebrow whitespace-nowrap">{label}</span>
-      <span className="h-px flex-1 bg-line" />
-    </div>
+    <p className="inline-flex rounded-full bg-card px-4 py-1.5 text-[0.75rem] font-semibold tracking-[0.12em] text-ink uppercase ring-1 ring-ink/5">
+      {children}
+    </p>
   );
 }
 

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowUpRight, Minus, Plus } from "lucide-react";
 import { faq } from "@/content/site";
 import { WorkIcon } from "@/components/Icons";
+import { SectionLabel } from "@/components/ui/Bits";
 
 /** The little keycap above the heading, drawn in isometric so it needs no asset. */
 function Keycap() {
@@ -30,8 +31,11 @@ export default function Faq() {
   return (
     <section id="faq" className="grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
       <div>
-        <Keycap />
-        <h2 className="display mt-6 text-[clamp(2rem,4.2vw,3rem)]">
+        <SectionLabel>{faq.eyebrow}</SectionLabel>
+        <div className="mt-6">
+          <Keycap />
+        </div>
+        <h2 className="section-title mt-5">
           {faq.title.map((line) => (
             <span key={line} className="block">
               {line}

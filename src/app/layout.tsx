@@ -5,7 +5,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://plumbline.studio"),
-  title: "DesignLabs — design for products that are better than they look",
+  title: "DesignLabs | Design for products that are better than they look",
   description:
     "A design studio for technical founders. Product UI, brand systems and launch sites for dev tools and B2B software.",
   openGraph: {
