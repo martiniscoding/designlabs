@@ -30,7 +30,7 @@ export const hero = {
      accent by the component. */
   headline: ["Design that makes", "your product stand out"],
   sub:
-    "A product design studio for startups and SaaS — interfaces, brand " +
+    "A product design studio for startups and SaaS, interfaces, brand " +
     "systems and websites that earn trust at first glance.",
   primary: { label: "Book a call", href: "https://cal.com/plumbline/intro" },
   secondary: { label: "See the work", href: "#work" },
