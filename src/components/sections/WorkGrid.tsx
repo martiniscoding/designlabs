@@ -7,7 +7,11 @@ import { works, type Work } from "@/content/works";
 import { PhoneGroup } from "@/components/ui/IPhone";
 
 /* ------------------------------------------------------------------
-   One uniform grid: every project gets the same cell, two to a row.
+   Masonry, not a row grid. Each tile is cut to its own screenshot's ratio
+   so nothing is cropped, which means the tiles are not one height: a
+   full-page capture runs several times taller than a hero shot. A row grid
+   would leave a blank square beside anything tall; columns let the short
+   tiles stack up that gap instead.
 
    Two rather than three, because the site shots are full-page captures
    — at three across the headline type inside them stops being legible.
@@ -23,6 +27,7 @@ const filters = [
 type Filter = (typeof filters)[number]["id"];
 
 function Tile({ work, index }: { work: Work; index: number }) {
+  const shotSizes = "(min-width: 1152px) 540px, (min-width: 768px) 48vw, 100vw";
   const media =
     work.kind === "app" ? (
       <PhoneGroup screens={work.screens} alt={`${work.name} app`} />
@@ -31,43 +36,69 @@ function Tile({ work, index }: { work: Work; index: number }) {
         src={work.src}
         alt={`${work.name} website`}
         fill
-        sizes="(min-width: 1152px) 530px, (min-width: 768px) 48vw, 100vw"
-        className="object-cover object-top transition-transform duration-700 ease-[var(--ease-out-soft)] group-hover:scale-[1.03]"
+        sizes={shotSizes}
+        className="object-cover object-top"
       />
     );
 
+  const shot = (
+    <div
+      // Cut to the shot's own ratio, so the whole screenshot is on show with
+      // nothing trimmed off the edges. Apps are drawn, not captured, so they
+      // keep a fixed frame.
+      style={work.kind === "site" ? { aspectRatio: work.ratio } : undefined}
+      className={`@container relative overflow-hidden rounded-[14px] bg-card ring-1 ring-ink/5 ${
+        work.kind === "app" ? "aspect-[16/10]" : ""
+      }`}
+    >
+      {media}
+      {/* Sites open live, so they advertise it. Apps have nowhere to go. */}
+      {work.kind === "site" && (
+        <span className="absolute top-3 right-3 inline-flex items-center gap-1.5 rounded-full bg-white/95 py-1.5 pr-3 pl-3.5 text-[0.8125rem] font-semibold text-ink shadow-[0_8px_24px_-12px_rgba(30,36,48,0.5)] ring-1 ring-ink/5 backdrop-blur transition-all duration-300 md:translate-y-1 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 md:group-focus-visible:translate-y-0 md:group-focus-visible:opacity-100">
+          View project
+          <ArrowUpRight size={14} />
+        </span>
+      )}
+    </div>
+  );
+
+  // Under the shot, inside the same card: the image can then run nearly to the
+  // card's edge instead of making room for a pill floating on top of it.
   const caption = (
-    <span className="absolute bottom-3 left-3 flex max-w-[calc(100%-1.5rem)] items-center gap-2 rounded-full bg-white/90 py-1.5 pr-3 pl-3.5 text-[0.8125rem] text-ink shadow-[0_8px_24px_-12px_rgba(30,36,48,0.5)] ring-1 ring-ink/5 backdrop-blur transition-all duration-300 md:translate-y-1 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 md:group-focus-visible:translate-y-0 md:group-focus-visible:opacity-100">
-      <span className="shrink-0 whitespace-nowrap font-semibold">{work.name}</span>
-      <span className="truncate text-muted">{work.what}</span>
-      {work.kind === "site" && <ArrowUpRight size={14} className="shrink-0" />}
-    </span>
+    <div className="flex items-center justify-between gap-4 px-3 pt-3.5 pb-1 sm:px-3.5">
+      <p className="min-w-0 truncate text-[0.9375rem] tracking-[-0.01em]">
+        <span className="font-semibold text-ink">{work.name}</span>
+        <span className="text-muted"> · {work.what}</span>
+      </p>
+      <span className="flex shrink-0 items-center gap-3">
+        <span className="hidden text-[0.8125rem] text-faint sm:inline">
+          {work.kind === "site" ? "Website" : "Mobile app"}
+        </span>
+        <span className="text-[0.9375rem] tabular-nums text-line">
+          {String(index + 1).padStart(2, "0")}
+        </span>
+      </span>
+    </div>
   );
 
   const frame =
-    "group block h-full rounded-[var(--radius-card)] border border-line bg-hush/70 p-2.5 shadow-[0_24px_50px_-38px_rgba(30,36,48,0.55)] outline-none transition-[translate,box-shadow,border-color,background-color] duration-500 ease-[var(--ease-out-soft)] hover:-translate-y-1.5 hover:border-ink/15 hover:bg-hush hover:shadow-[0_36px_60px_-30px_rgba(30,36,48,0.55)] focus-visible:ring-2 focus-visible:ring-accent active:translate-y-0 active:duration-150 lg:p-3";
-  const inner =
-    "@container relative aspect-[16/10] overflow-hidden rounded-[14px] bg-card ring-1 ring-ink/5";
+    "group block h-full rounded-[18px] border border-line bg-card p-1.5 shadow-[0_1px_2px_rgba(30,36,48,0.04),0_18px_40px_-34px_rgba(30,36,48,0.45)] outline-none transition-[translate,box-shadow,border-color] duration-500 ease-[var(--ease-out-soft)] hover:-translate-y-1.5 hover:border-ink/15 hover:shadow-[0_30px_56px_-30px_rgba(30,36,48,0.5)] focus-visible:ring-2 focus-visible:ring-accent active:translate-y-0 active:duration-150";
 
   return (
     <li
-      className="work-in"
+      className="work-in mb-5 break-inside-avoid md:mb-6"
       // Capped, or the last tiles in a long list arrive uncomfortably late.
       style={{ animationDelay: `${Math.min(index, 9) * 55}ms` } as CSSProperties}
     >
       {work.kind === "site" ? (
         <a href={work.url} target="_blank" rel="noreferrer" className={frame}>
-          <div className={inner}>
-            {media}
-            {caption}
-          </div>
+          {shot}
+          {caption}
         </a>
       ) : (
         <div tabIndex={0} className={frame}>
-          <div className={inner}>
-            {media}
-            {caption}
-          </div>
+          {shot}
+          {caption}
         </div>
       )}
     </li>
@@ -109,8 +140,10 @@ export default function WorkGrid() {
         </div>
       </div>
 
-      {/* `key` on the list restarts the entrance run when the filter changes. */}
-      <ul key={filter} className="grid gap-4 md:grid-cols-2 md:gap-5">
+      {/* `key` restarts the entrance run when the filter changes. Column flow
+          fills top to bottom, so a tall tile in one column is paired with
+          several short ones in the other and no space is left over. */}
+      <ul key={filter} className="columns-1 gap-5 md:columns-2 md:gap-6">
         {list.map((work, i) => (
           <Tile key={work.slug} work={work} index={i} />
         ))}

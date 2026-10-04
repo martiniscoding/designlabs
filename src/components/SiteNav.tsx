@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowUpRight } from "lucide-react";
 import { nav, site } from "@/content/site";
-import { Mark } from "@/components/Icons";
 
 /**
  * A quiet editorial top bar: wordmark left, links and the ask grouped on the
@@ -43,7 +43,14 @@ export default function SiteNav() {
     >
       <div className="mx-auto flex h-[72px] max-w-6xl items-center justify-between gap-6 px-6 lg:px-10">
         <Link href="/" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
-          <Mark size={24} />
+          <Image
+            src="/logo.png"
+            alt=""
+            width={512}
+            height={510}
+            priority
+            className="h-7 w-7 object-contain"
+          />
           <span className="wordmark text-[1.375rem] leading-none text-ink">
             {site.name}
           </span>

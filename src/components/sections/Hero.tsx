@@ -10,8 +10,8 @@ const tileOnWhite = `${tile} bg-hush group-hover:bg-line`;
 
 /**
  * Type-only hero: a proof badge, the headline, the pitch and two chunky
- * buttons, centred in exactly one screen under the 72px nav, over the
- * drifting dot field.
+ * buttons, centred in exactly one screen under the 72px nav, over a warm
+ * accent bloom.
  */
 export default function Hero() {
   return (
@@ -19,6 +19,8 @@ export default function Hero() {
       id="home"
       className="relative isolate flex h-[calc(100svh-72px)] min-h-[520px] flex-col"
     >
+      <div className="hero-glow" aria-hidden="true" />
+
       {/* Slightly above true centre: optically, dead centre reads as low. */}
       <Container className="flex flex-1 flex-col items-center justify-center pb-[4vh] text-center">
         {/* The count is the real number of projects on the Work page. */}

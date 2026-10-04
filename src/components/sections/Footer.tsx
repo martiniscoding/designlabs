@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { footer, nav, site } from "@/content/site";
-import { CallIcon, Mark, MessageIcon } from "@/components/Icons";
+import Image from "next/image";
+import { CallIcon, MessageIcon } from "@/components/Icons";
 
 /* ------------------------------------------------------------------
    The closing panel: a dark card carrying the last call to action, the
@@ -63,7 +64,7 @@ export default function Footer() {
         {/* The mark, centred on the darker ground below the card. */}
         <div className="flex justify-center py-8 sm:py-10">
           <Link href="/" aria-label={`${site.name}, home`} className="inline-flex">
-            <Mark size={64} light />
+            <Image src="/logo.png" alt="" width={512} height={510} className="h-14 w-14 object-contain" />
           </Link>
         </div>
 
