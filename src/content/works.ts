@@ -56,8 +56,8 @@ const app = (slug: string, name: string, what: string, count = 2): Work => ({
 });
 
 export const works: Work[] = [
-  site("ryne-ai", "Ryne AI", "AI humanizer and writing tools", "https://ryne.ai/", 1.7209),
-  shot("ryne-ai", 2, "Ryne AI", "The AI tool suite", "https://ryne.ai/", 1.7398),
+  // Two Ryne screens stacked into one taller tile.
+  site("ryne-ai", "Ryne AI", "AI humanizer and writing tools", "https://ryne.ai/", 0.865),
   site("chatdoc", "ChatDOC", "Chat with your documents", "https://chatdoc.com/m/", 1.6),
   site("tessact-ai", "Tessact", "AI video editing at scale", "https://tessact.ai/", 1.6),
   app("pillo", "PillO", "60-minute medicine delivery"),

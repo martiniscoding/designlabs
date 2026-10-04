@@ -70,13 +70,8 @@ function Tile({ work, index }: { work: Work; index: number }) {
         <span className="font-semibold text-ink">{work.name}</span>
         <span className="text-muted"> · {work.what}</span>
       </p>
-      <span className="flex shrink-0 items-center gap-3">
-        <span className="hidden text-[0.8125rem] text-faint sm:inline">
-          {work.kind === "site" ? "Website" : "Mobile app"}
-        </span>
-        <span className="text-[0.9375rem] tabular-nums text-line">
-          {String(index + 1).padStart(2, "0")}
-        </span>
+      <span className="hidden shrink-0 text-[0.8125rem] text-faint sm:inline">
+        {work.kind === "site" ? "Website" : "Mobile app"}
       </span>
     </div>
   );
