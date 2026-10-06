@@ -78,7 +78,7 @@ function Card({ work, tag }: { work: Work; tag: string }) {
   const inner = (
     <>
       {/* Header: name left, project kind right. */}
-      <div className="flex items-center justify-between gap-4">
+      <div className="flex items-center justify-between gap-4 px-1.5 pt-1">
         <span className="flex items-center gap-2 text-[0.9375rem] font-semibold text-ink">
           <span aria-hidden="true" className="h-2 w-2 rounded-full bg-ink/30" />
           {work.name}
@@ -92,7 +92,7 @@ function Card({ work, tag }: { work: Work; tag: string }) {
       {/* Shot. Sites are 16:10 captures, so give them that box to avoid a
           side crop; apps get the squarer frame two phones need. */}
       <div
-        className={`@container relative mt-5 overflow-hidden rounded-[18px] bg-card ring-1 ring-ink/5 ${
+        className={`@container relative mt-3.5 overflow-hidden rounded-[16px] bg-card ring-1 ring-ink/5 ${
           work.kind === "app" ? "aspect-[4/3]" : "aspect-[16/10]"
         }`}
       >
@@ -102,7 +102,7 @@ function Card({ work, tag }: { work: Work; tag: string }) {
   );
 
   const frame =
-    "group block rounded-[26px] border border-line bg-panel p-4 shadow-[0_24px_50px_-40px_rgba(30,36,48,0.5)] outline-none transition-[translate,box-shadow,border-color] duration-500 ease-[var(--ease-out-soft)] hover:-translate-y-1 hover:border-ink/15 hover:shadow-[0_34px_60px_-34px_rgba(30,36,48,0.55)] focus-visible:ring-2 focus-visible:ring-accent sm:p-5";
+    "group block rounded-[22px] border border-line/70 bg-panel p-2.5 shadow-[0_18px_40px_-36px_rgba(30,36,48,0.45)] outline-none transition-[translate,box-shadow,border-color] duration-500 ease-[var(--ease-out-soft)] hover:-translate-y-1 hover:border-ink/15 hover:shadow-[0_28px_54px_-36px_rgba(30,36,48,0.5)] focus-visible:ring-2 focus-visible:ring-accent sm:p-3";
 
   return work.kind === "site" ? (
     <a href={work.url} target="_blank" rel="noreferrer" className={frame}>
