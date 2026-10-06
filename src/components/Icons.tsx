@@ -84,7 +84,13 @@ export const CallIcon = ({ size = 20 }: { size?: number }) => (
 
 export const MessageIcon = () => (
   <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
-    <circle cx="11" cy="11" r="9" fill="var(--color-ink)" />
+    <defs>
+      <linearGradient id="tg-blue" x1="11" y1="2" x2="11" y2="20" gradientUnits="userSpaceOnUse">
+        <stop stopColor="#2AABEE" />
+        <stop offset="1" stopColor="#229ED9" />
+      </linearGradient>
+    </defs>
+    <circle cx="11" cy="11" r="9" fill="url(#tg-blue)" />
     <path d="M6 11.2 15.6 7l-2.1 9.2-3-2.6-1.6 2.1-.3-3.2z" fill="#fff" />
     <path d="M8.6 12.5 15.6 7l-6.2 6.6z" fill="#c9cdd6" />
   </svg>

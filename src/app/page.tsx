@@ -2,7 +2,6 @@ import Shell, { Container } from "@/components/Shell";
 import Hero from "@/components/sections/Hero";
 import TrustedBy from "@/components/sections/TrustedBy";
 import Projects from "@/components/sections/Projects";
-import ProductShowcase from "@/components/sections/ProductShowcase";
 import Services from "@/components/sections/Services";
 import Impact from "@/components/sections/Impact";
 import Testimonials from "@/components/sections/Testimonials";
@@ -16,9 +15,6 @@ export default function Page() {
       <Hero />
       <TrustedBy />
       <Projects />
-      <div className="pt-28 lg:pt-40">
-        <ProductShowcase />
-      </div>
       {/* The sections carry their own rhythm now that nothing separates
           them: one gap, set here, between every pair. */}
       <Container className="flex flex-col gap-28 pt-28 pb-4 lg:gap-40 lg:pt-40">
