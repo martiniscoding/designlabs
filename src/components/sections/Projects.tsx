@@ -52,8 +52,8 @@ export default function Projects() {
 
         {/* Card grid. */}
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:mt-16">
-          {projects.items.map(({ slug, tag }) => (
-            <Card key={slug} work={workBySlug(slug)} tag={tag} />
+          {projects.items.map(({ slug }) => (
+            <Card key={slug} work={workBySlug(slug)} />
           ))}
         </div>
       </Container>
@@ -61,7 +61,7 @@ export default function Projects() {
   );
 }
 
-function Card({ work, tag }: { work: Work; tag: string }) {
+function Card({ work }: { work: Work }) {
   const media =
     work.kind === "app" ? (
       <PhoneGroup screens={work.screens} alt={`${work.name} app`} />
@@ -77,38 +77,27 @@ function Card({ work, tag }: { work: Work; tag: string }) {
 
   const inner = (
     <>
-      {/* Header: name left, project kind right. */}
-      <div className="flex items-center justify-between gap-4 px-1.5 pt-1">
-        <span className="flex items-center gap-2 text-[0.9375rem] font-semibold text-ink">
-          <span aria-hidden="true" className="h-2 w-2 rounded-full bg-ink/30" />
-          {work.name}
+      {/* Shot only: no name, no label — the work speaks for itself. */}
+      <div className="relative bg-white px-6 py-5 sm:px-8 sm:py-7">
+        <div className={`relative ${work.kind === "app" ? "aspect-[4/3]" : "aspect-[16/10]"}`}>
+          <div className="@container relative h-full overflow-hidden bg-card">
+            {media}
+          </div>
+        </div>
+        {/* Grey rules on the image edges, run out to the white box edges. */}
+        <span aria-hidden="true" className="pointer-events-none absolute inset-0 z-20 text-ink/15">
+          <span className="absolute inset-x-0 bottom-5 h-px bg-current sm:bottom-7" />
+          <span className="absolute inset-y-0 left-6 w-px bg-current sm:left-8" />
+          <span className="absolute inset-y-0 right-6 w-px bg-current sm:right-8" />
         </span>
-        <span className="flex items-center gap-1.5 text-[0.9375rem] text-muted">
-          {tag}
-          <ArrowUpRight size={16} className="text-faint transition-colors group-hover:text-ink" />
-        </span>
-      </div>
-
-      {/* Shot. Sites are 16:10 captures, so give them that box to avoid a
-          side crop; apps get the squarer frame two phones need. */}
-      <div
-        className={`@container relative mt-3.5 overflow-hidden rounded-[16px] bg-card ring-1 ring-ink/5 ${
-          work.kind === "app" ? "aspect-[4/3]" : "aspect-[16/10]"
-        }`}
-      >
-        {media}
       </div>
     </>
   );
 
   const frame =
-    "group block rounded-[22px] border border-line/70 bg-panel p-2.5 shadow-[0_18px_40px_-36px_rgba(30,36,48,0.45)] outline-none transition-[translate,box-shadow,border-color] duration-500 ease-[var(--ease-out-soft)] hover:-translate-y-1 hover:border-ink/15 hover:shadow-[0_28px_54px_-36px_rgba(30,36,48,0.5)] focus-visible:ring-2 focus-visible:ring-accent sm:p-3";
+    "group block outline-none transition-[translate] duration-500 ease-[var(--ease-out-soft)] hover:-translate-y-1 focus-visible:ring-2 focus-visible:ring-accent";
 
-  return work.kind === "site" ? (
-    <a href={work.url} target="_blank" rel="noreferrer" className={frame}>
-      {inner}
-    </a>
-  ) : (
+  return (
     <Link href="/work" className={frame}>
       {inner}
     </Link>

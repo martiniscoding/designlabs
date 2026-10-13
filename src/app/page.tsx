@@ -1,6 +1,5 @@
 import Shell, { Container } from "@/components/Shell";
 import Hero from "@/components/sections/Hero";
-import TrustedBy from "@/components/sections/TrustedBy";
 import Projects from "@/components/sections/Projects";
 import Services from "@/components/sections/Services";
 import Impact from "@/components/sections/Impact";
@@ -13,7 +12,6 @@ export default function Page() {
   return (
     <Shell hero>
       <Hero />
-      <TrustedBy />
       <Projects />
       {/* The sections carry their own rhythm now that nothing separates
           them: one gap, set here, between every pair. */}

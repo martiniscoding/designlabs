@@ -50,3 +50,22 @@ export function Tick({ children }: { children: ReactNode }) {
 export function Arrow() {
   return <ArrowIcon />;
 }
+
+/**
+ * A technical "frame": thin grey rules on all four edges of an image that
+ * extend a little past the corners, so the corners read as small crosses.
+ * Render it on a NON-clipped wrapper that is a sibling of the (square-cornered)
+ * image box, sized to the same box via `inset-0`.
+ */
+export function CornerTicks() {
+  const h = "pointer-events-none absolute -left-2 -right-2 h-px bg-ink/25";
+  const v = "pointer-events-none absolute -top-2 -bottom-2 w-px bg-ink/25";
+  return (
+    <span aria-hidden="true" className="pointer-events-none absolute inset-0 z-20">
+      <span className={`${h} top-0`} />
+      <span className={`${h} bottom-0`} />
+      <span className={`${v} left-0`} />
+      <span className={`${v} right-0`} />
+    </span>
+  );
+}

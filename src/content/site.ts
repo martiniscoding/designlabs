@@ -10,7 +10,7 @@ export const site = {
   name: "DesignLabs",
   tagline: "Design for products that are better than they look",
   email: "hello@designlabs.studio",
-  booking: "https://cal.com/designlabs/intro",
+  booking: "https://cal.com/designlabs-u8sdoz/15min",
 };
 
 export const nav: {
@@ -34,16 +34,6 @@ export const hero = {
     "systems and websites that earn trust at first glance.",
   primary: { label: "Book a call", href: "https://cal.com/plumbline/intro" },
   secondary: { label: "See the work", href: "/work" },
-};
-
-/**
- * The client strip under the hero. Slugs point into works.ts, so the names
- * can never drift from the portfolio, and each one needs a matching mark at
- * /public/logos/<slug>.png.
- */
-export const trustedBy = {
-  label: "Trusted by",
-  clients: ["goroam", "fincrux", "ryne-ai", "volnex", "replizz-ai", "chatdoc"],
 };
 
 export const problem = {
@@ -440,12 +430,12 @@ export const projects = {
   cta: { label: "See All Projects", href: "/work" },
   /* Six works, each tagged with the kind of project it was. */
   items: [
-    { slug: "fincrux", tag: "Dashboard Design" },
-    { slug: "pillo", tag: "Health Tracker App" },
-    { slug: "unicapp", tag: "Delivery App" },
-    { slug: "tessact-ai", tag: "Agency Landing Page" },
-    { slug: "fabhotels", tag: "Booking Landing Page" },
-    { slug: "chatdoc", tag: "Dashboard Design" },
+    { slug: "intelligence", tag: "AI Platform" },
+    { slug: "daily-brief", tag: "Mobile App" },
+    { slug: "clearsignal", tag: "Dashboard Design" },
+    { slug: "flowship", tag: "Landing Page" },
+    { slug: "qiro", tag: "Fintech Landing" },
+    { slug: "lp-grid", tag: "Data Platform" },
   ],
 };
 
@@ -457,6 +447,6 @@ export const projects = {
 export const footer = {
   heading: ["Turning rough ideas into", "products"],
   blurb: "We design and build the product, the site, and the system that holds them together.",
-  cta: { label: "Schedule a Call", href: site.booking },
+  cta: { label: "Book a meeting", href: site.booking },
   clients: ["fincrux", "ryne-ai", "chatdoc", "volnex"],
 };

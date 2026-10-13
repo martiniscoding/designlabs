@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { footer, nav, site } from "@/content/site";
-import Image from "next/image";
-import { CallIcon, MessageIcon } from "@/components/Icons";
+import { CalendarIcon } from "@/components/Icons";
 
 /* ------------------------------------------------------------------
    The closing panel: a dark card carrying the last call to action, the
@@ -35,11 +34,8 @@ export default function Footer() {
                   href={footer.cta.href}
                   className="inline-flex h-11 items-center gap-2.5 rounded-2xl bg-white px-5 sm:h-12 sm:px-6 text-[0.9375rem] font-semibold tracking-[-0.01em] text-ink transition-transform duration-300 ease-[var(--ease-out-soft)] hover:-translate-y-0.5"
                 >
-                  <CallIcon size={18} />
+                  <CalendarIcon size={18} />
                   {footer.cta.label}
-                </a>
-                <a href={`mailto:${site.email}`} aria-label="Email us" className={iconButton}>
-                  <MessageIcon />
                 </a>
                 <a href="#home" aria-label="Back to top" className={iconButton}>
                   <svg
@@ -61,14 +57,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* The mark, centred on the darker ground below the card. */}
-        <div className="flex justify-center py-8 sm:py-10">
-          <Link href="/" aria-label={`${site.name}, home`} className="inline-flex">
-            <Image src="/logo.png" alt="" width={512} height={510} className="h-14 w-14 object-contain" />
-          </Link>
-        </div>
-
-        <div className="flex flex-col gap-4 px-4 pb-4 sm:flex-row sm:items-center sm:justify-between sm:px-6 sm:pb-5">
+        <div className="mt-6 flex flex-col gap-4 px-4 pb-4 sm:flex-row sm:items-center sm:justify-between sm:px-6 sm:pb-5">
           <nav aria-label="Footer" className="flex flex-wrap items-center gap-x-7 gap-y-2">
             {links.map((n) => (
               <Link

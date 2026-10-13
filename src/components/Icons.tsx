@@ -62,6 +62,25 @@ export const ClockIcon = () => (
  * Meet call, the way a Slack or GitHub icon labels a link to those. If the
  * booking flow ever stops creating Meet links, this icon has to go.
  */
+/** A plain calendar glyph for scheduling links — not a brand mark. */
+export const CalendarIcon = ({ size = 18 }: { size?: number }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 20 20"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.7"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    <rect x="3" y="4.5" width="14" height="13" rx="3" />
+    <path d="M3 8.5h14M7 2.5v3M13 2.5v3" />
+    <path d="M7 12h0.01M10 12h0.01M13 12h0.01M7 14.8h0.01M10 14.8h0.01" />
+  </svg>
+);
+
 export const CallIcon = ({ size = 20 }: { size?: number }) => (
   <svg
     width={size}

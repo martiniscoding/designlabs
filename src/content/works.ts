@@ -1,7 +1,6 @@
 /**
- * Shipped client work. Website shots live in /public/work (2880×1800 hero
- * captures, 16:10); app screens live in /public/apps (230×498 phone captures,
- * `<slug>-<n>.webp`). Used by the home page marquee and the /work page.
+ * Shipped work. Each shot lives in /public/work/<slug>.jpg. `ratio` is the
+ * shot's own width ÷ height, so the tile is cut to it and nothing is cropped.
  */
 export type Work =
   | {
@@ -9,73 +8,37 @@ export type Work =
       slug: string;
       name: string;
       what: string;
-      url: string;
+      url: string; // "#" means no live link
       src: string;
-      /** The shot's own width ÷ height. The tile is cut to this, so the
-       *  whole screenshot shows with nothing cropped off the edges.
-       *  Regenerate with: python3 -c "from PIL import Image;..." over
-       *  /public/work when a shot is replaced. */
       ratio: number;
     }
   | { kind: "app"; slug: string; name: string; what: string; screens: string[] };
 
-const site = (slug: string, name: string, what: string, url: string, ratio: number): Work => ({
+const site = (slug: string, name: string, what: string, ratio: number, url = "#"): Work => ({
   kind: "site",
   slug,
   name,
   what,
   url,
-  src: `/work/${slug}.png`,
+  src: `/work/${slug}.jpg`,
   ratio,
-});
-
-/** A second screen from a project that already has a tile of its own. */
-const shot = (
-  slug: string,
-  n: number,
-  name: string,
-  what: string,
-  url: string,
-  ratio: number,
-): Work => ({
-  kind: "site",
-  slug: `${slug}-${n}`,
-  name,
-  what,
-  url,
-  src: `/work/${slug}-${n}.png`,
-  ratio,
-});
-
-const app = (slug: string, name: string, what: string, count = 2): Work => ({
-  kind: "app",
-  slug,
-  name,
-  what,
-  screens: Array.from({ length: count }, (_, i) => `/apps/${slug}-${i + 1}.webp`),
 });
 
 export const works: Work[] = [
-  // Two Ryne screens stacked into one taller tile.
-  site("ryne-ai", "Ryne AI", "AI humanizer and writing tools", "https://ryne.ai/", 0.865),
-  site("chatdoc", "ChatDOC", "Chat with your documents", "https://chatdoc.com/m/", 1.6),
-  site("tessact-ai", "Tessact", "AI video editing at scale", "https://tessact.ai/", 1.6),
-  app("pillo", "PillO", "60-minute medicine delivery"),
-  app("unicapp", "Unicapp", "On-demand delivery"),
-  app("skanaus", "Skanaus", "Restaurant discounts in Lithuania"),
-  site("volnex", "VolNex", "Global trading platform", "https://www.volnex.com/", 1.6),
-  site("fincrux", "Fincrux", "Indian market data API", "https://fincrux.org/", 1.6),
-  site("fabhotels", "FabHotels", "Budget hotel booking", "https://www.fabhotels.com/", 1.6),
-  app("turf-town", "Turf Town", "Sports venue booking"),
-  app("dark-noise", "Dark Noise", "Ambient sounds for sleep and focus"),
-  app("all-quiet", "All Quiet", "Incident management"),
-  shot("goroam", 2, "GoRoam", "Trip planning flow", "https://goroam.vercel.app/", 1.7835),
-  site("typill", "Typill", "AI writing workspace", "https://typill.com/", 1.7166),
-  site("nosana", "Nosana", "GPU compute for AI inference", "https://nosana.vercel.app/", 0.6627),
-  site("replizz-ai", "Replizz AI", "AI customer support chatbots", "https://replizz-ai.vercel.app/", 1.6),
-  site("goroam", "GoRoam", "AI travel planner", "https://goroam.vercel.app/", 1.6),
-  site("nogrowth", "NoGrowth", "Ad creative studio", "https://nogrowth.com/", 1.6),
-  site("dappunk", "dappunk", "Brand website", "https://dappunk.com/", 1.69),
+  site("intelligence", "Intelligence", "AI platform landing", 1.77),
+  site("lp-grid", "LP Grid", "VC data platform", 1.741),
+  site("vanter", "Vanter", "Engineering studio site", 1.766),
+  site("acre", "Acre", "Maker workspace landing", 1.327),
+  site("flowship", "FlowShip", "Delivery platform site", 1.484),
+  site("rexai", "RexAI", "Onboarding UI", 1.544),
+  site("daily-brief", "Daily Brief", "News brief mobile app", 1.778),
+  site("account-flow", "Account Flow", "Sign-up screen", 1.347),
+  site("discovery", "Discovery", "AI agents landing", 1.672),
+  site("freight", "Freight", "Logistics landing", 1.782),
+  site("clearsignal", "ClearSignal", "Workflow dashboard", 1.504),
+  site("yg-doors", "YG Doors", "Manufacturing landing", 1.741),
+  site("qiro", "Qiro", "DeFi lending landing", 1.732),
+  site("icnoc", "icnoc", "Shopify agency landing", 1.534),
 ];
 
 export const workBySlug = (slug: string) => {

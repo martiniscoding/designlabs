@@ -18,11 +18,17 @@ export default function WorkPage() {
             <span className="text-accent-ink">Showcase</span> of our best <span className="text-accent-ink">work</span>
           </h1>
           <p className="section-sub mx-auto mt-5">
-            Websites and mobile apps we have designed and shipped. Hover a project to see what it is;
-            websites open live.
+            A showcase of the websites and mobile apps we have designed and shipped.
           </p>
         </div>
+      </Container>
+
+      {/* Wider than the page container, so the tiles read large. */}
+      <div className="mx-auto w-full max-w-[1500px] px-6 lg:px-10">
         <WorkGrid />
+      </div>
+
+      <Container className="pb-4">
         <Footer />
       </Container>
     </Shell>
