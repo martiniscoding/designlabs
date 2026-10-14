@@ -4,7 +4,8 @@ import ClientMotion from "@/components/ClientMotion";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://plumbline.studio"),
+  metadataBase: new URL("https://www.thedesignlabs.agency"),
+  alternates: { canonical: "/" },
   title: "DesignLabs | Design for products that are better than they look",
   description:
     "A design studio for technical founders. Product UI, brand systems and launch sites for dev tools and B2B software.",
@@ -13,7 +14,11 @@ export const metadata: Metadata = {
     description: "Design for products that are better than they look.",
     type: "website",
     locale: "en_GB",
+    url: "https://www.thedesignlabs.agency/",
+    siteName: "DesignLabs",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "DesignLabs" }],
   },
+  twitter: { card: "summary_large_image", title: "DesignLabs", description: "Design for products that are better than they look." },
 };
 
 export default function RootLayout({
@@ -39,6 +44,16 @@ export default function RootLayout({
         />
       </head>
       <body>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ProfessionalService",
+          name: "DesignLabs",
+          url: "https://www.thedesignlabs.agency/",
+          logo: "https://www.thedesignlabs.agency/logo.png",
+          description: "A product design studio for startups and SaaS, interfaces, brand systems and websites.",
+          areaServed: "Worldwide",
+          serviceType: ["SaaS product design", "Website design", "Web and mobile app design", "Design systems"],
+        }) }} />
         <ClientMotion />
         {children}
       </body>

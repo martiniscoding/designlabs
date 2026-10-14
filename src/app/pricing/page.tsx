@@ -5,6 +5,7 @@ import Footer from "@/components/sections/Footer";
 import { pricingTeaser } from "@/content/site";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/pricing" },
   title: "Pricing | DesignLabs",
   description:
     "Fixed prices for launch sites, brand systems and product UI, plus a monthly retainer. The numbers are on the page.",

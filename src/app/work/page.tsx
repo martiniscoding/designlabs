@@ -4,6 +4,7 @@ import WorkGrid from "@/components/sections/WorkGrid";
 import Footer from "@/components/sections/Footer";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/work" },
   title: "Work | DesignLabs",
   description: "Websites and mobile apps we have designed and shipped.",
 };
