@@ -26,8 +26,7 @@ export const nav: {
 ];
 
 export const hero = {
-  /* One entry per line. The full stop after the last line is set in the
-     accent by the component. */
+  /* One entry per line; the hero renders "product" in orange italic type. */
   headline: ["Design that makes", "your product stand out"],
   sub:
     "A product design studio for startups and SaaS, interfaces, brand " +

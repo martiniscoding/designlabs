@@ -6,12 +6,12 @@ import { workBySlug, type Work } from "@/content/works";
 import { PhoneGroup } from "@/components/ui/IPhone";
 import { Container } from "@/components/Shell";
 import { SectionLabel } from "@/components/ui/Bits";
+import WorkCaption from "@/components/ui/WorkCaption";
 
 /**
  * A curated projects grid: an eyebrow + accent headline on the left, the
  * pitch and a "See all" button on the right, then two columns of cards.
- * Each card carries the client name and the kind of project in its header,
- * with the shot filling the panel below.
+ * Each card pairs an inset screenshot with its project details below.
  */
 export default function Projects() {
   /* No bottom padding on purpose: the Container below supplies the page's
@@ -52,8 +52,8 @@ export default function Projects() {
 
         {/* Card grid. */}
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:mt-16">
-          {projects.items.map(({ slug }) => (
-            <Card key={slug} work={workBySlug(slug)} />
+          {projects.items.map(({ slug }, index) => (
+            <Card key={slug} work={workBySlug(slug)} index={index} />
           ))}
         </div>
       </Container>
@@ -61,7 +61,7 @@ export default function Projects() {
   );
 }
 
-function Card({ work }: { work: Work }) {
+function Card({ work, index }: { work: Work; index: number }) {
   const media =
     work.kind === "app" ? (
       <PhoneGroup screens={work.screens} alt={`${work.name} app`} />
@@ -77,25 +77,22 @@ function Card({ work }: { work: Work }) {
 
   const inner = (
     <>
-      {/* Shot only: no name, no label — the work speaks for itself. */}
-      <div className="relative bg-white px-6 py-5 sm:px-8 sm:py-7">
-        <div className={`relative ${work.kind === "app" ? "aspect-[4/3]" : "aspect-[16/10]"}`}>
-          <div className="@container relative h-full overflow-hidden bg-card">
+      <div className="p-2 sm:p-3">
+        <div
+          className={`relative ${work.kind === "app" ? "aspect-[4/3]" : ""}`}
+          style={work.kind === "site" ? { aspectRatio: work.ratio } : undefined}
+        >
+          <div className="@container relative h-full overflow-hidden rounded-[10px] bg-card">
             {media}
           </div>
         </div>
-        {/* Grey rules on the image edges, run out to the white box edges. */}
-        <span aria-hidden="true" className="pointer-events-none absolute inset-0 z-20 text-ink/15">
-          <span className="absolute inset-x-0 bottom-5 h-px bg-current sm:bottom-7" />
-          <span className="absolute inset-y-0 left-6 w-px bg-current sm:left-8" />
-          <span className="absolute inset-y-0 right-6 w-px bg-current sm:right-8" />
-        </span>
+        <WorkCaption work={work} index={index} />
       </div>
     </>
   );
 
   const frame =
-    "group block outline-none transition-[translate] duration-500 ease-[var(--ease-out-soft)] hover:-translate-y-1 focus-visible:ring-2 focus-visible:ring-accent";
+    "group block self-start overflow-hidden rounded-[16px] border border-[#e2e3e8] bg-white outline-none transition-[translate] duration-500 ease-[var(--ease-out-soft)] hover:-translate-y-1 focus-visible:ring-2 focus-visible:ring-accent";
 
   return (
     <Link href="/work" className={frame}>

@@ -1,6 +1,15 @@
 import { hero } from "@/content/site";
 import { works } from "@/content/works";
 import { Container } from "@/components/Shell";
+import Image from "next/image";
+
+const clients = [
+  { slug: "fincrux", name: "Fincrux" },
+  { slug: "ryne-ai", name: "Ryne AI" },
+  { slug: "chatdoc", name: "Chatdoc" },
+  { slug: "volnex", name: "Volnex" },
+  { slug: "goroam", name: "GoRoam" },
+];
 
 const button =
   "group inline-flex items-center gap-5 rounded-2xl py-2 pr-2 pl-6 text-[1.0625rem] font-semibold tracking-[-0.02em] transition-[translate,box-shadow,background-color] duration-300 ease-[var(--ease-out-soft)] hover:-translate-y-0.5";
@@ -9,42 +18,73 @@ const tileOnAccent = `${tile} bg-white/20 group-hover:bg-white/30`;
 const tileOnWhite = `${tile} bg-hush group-hover:bg-line`;
 
 /**
- * Type-only hero: a proof badge, the headline, the pitch and two chunky
- * buttons, centred in exactly one screen under the 72px nav, over a warm
- * accent bloom.
+ * A proof badge, the headline, the pitch and two chunky
+ * buttons and a centred client row over a soft peach bloom.
  */
 export default function Hero() {
   return (
     <section
       id="home"
-      className="relative isolate flex h-[calc(100svh-72px)] min-h-[520px] flex-col"
+      className="relative isolate flex min-h-[calc(100svh-72px)] flex-col overflow-hidden bg-[#fcf9f5]"
     >
       <div className="hero-glow" aria-hidden="true" />
 
-      {/* Slightly above true centre: optically, dead centre reads as low. */}
-      <Container className="flex flex-1 flex-col items-center justify-center pb-[4vh] text-center">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute top-8 right-2 z-0 hidden w-[24vw] max-w-[380px] lg:block"
+      >
+        <Image
+          src="/illustrations/paper-airplane.png"
+          alt=""
+          width={1536}
+          height={1024}
+          sizes="24vw"
+          className="h-auto w-full"
+        />
+      </div>
+
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute bottom-0 -left-[16.02vw] z-0 hidden w-[40.94vw] max-w-[658.6px] lg:block"
+      >
+        <Image
+          src="/illustrations/stone-hand-peach.png"
+          alt=""
+          width={1536}
+          height={1024}
+          sizes="40.94vw"
+          className="h-auto w-full"
+        />
+      </div>
+
+      <Container className="relative z-10 flex flex-1 flex-col items-center justify-center pt-16 pb-14 text-center sm:pt-20 sm:pb-16 lg:pt-[clamp(5rem,12vh,8rem)] lg:pb-20">
         {/* The count is the real number of projects on the Work page. */}
         <p
           data-hero-eyebrow
-          className="rounded-full bg-card px-5 py-2 text-[0.9375rem] font-semibold tracking-[-0.02em] text-ink shadow-[0_8px_24px_-14px_rgba(30,36,48,0.35)] ring-1 ring-ink/5 sm:text-[1.0625rem]"
+          className="inline-flex items-center gap-2.5 rounded-full bg-white/95 px-5 py-2.5 text-sm font-medium tracking-[-0.025em] text-ink shadow-[0_5px_18px_-8px_rgba(191,109,61,0.22)] sm:text-[0.9375rem]"
         >
+          <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-accent" />
           {works.length} Shipped Projects
         </p>
 
         <h1
           data-hero-head
-          className="display mt-[clamp(1rem,3vh,1.75rem)] text-[clamp(2.25rem,min(6vw,12vh),5.25rem)] leading-[1.08] text-ink"
+          className="display mt-7 text-[clamp(2.125rem,5.8vw,5rem)] leading-[1.06] text-ink sm:mt-8"
         >
           {hero.headline.map((line) => (
             <span key={line} className="block sm:whitespace-nowrap">
-              {line}
+              {line.split(/(product)/).map((part, index) => (
+                part === "product" ? (
+                  <span key={index} className="headline-accent">{part}</span>
+                ) : part
+              ))}
             </span>
           ))}
         </h1>
 
         <p
           data-hero-sub
-          className="mt-[clamp(1.25rem,3.5vh,2rem)] max-w-[46ch] text-[clamp(1rem,2.4vh,1.25rem)] leading-[1.5] text-muted"
+          className="mt-6 max-w-[54ch] text-[clamp(1rem,1.5vw,1.25rem)] leading-[1.6] tracking-[-0.025em] text-muted sm:mt-7"
         >
           {hero.sub}
         </p>
@@ -97,11 +137,31 @@ export default function Hero() {
             </span>
           </a>
         </div>
-      </Container>
 
-      {/* Proof in the bottom-left corner: each client's own mark, squared to
-          one canvas so a single size fits them all, with the name beside it
-          since these are icon marks rather than wordmarks. */}
+        <div className="mt-16 w-full max-w-[640px] sm:mt-20 lg:mt-24">
+          <div className="flex items-center justify-center gap-5">
+            <span aria-hidden="true" className="h-px w-12 bg-ink/10 sm:w-20" />
+            <p className="text-xs font-semibold tracking-[0.04em] text-muted sm:text-sm">
+              Trusted by ambitious founders
+            </p>
+            <span aria-hidden="true" className="h-px w-12 bg-ink/10 sm:w-20" />
+          </div>
+          <ul className="mt-6 flex flex-wrap items-center justify-center gap-x-7 gap-y-5 sm:gap-x-9">
+            {clients.map((client) => (
+              <li key={client.slug} className="flex items-center gap-2 text-sm font-medium text-ink-2/75">
+                <Image
+                  src={`/logos/${client.slug}.png`}
+                  alt=""
+                  width={28}
+                  height={28}
+                  className="h-6 w-6 object-contain opacity-65 grayscale"
+                />
+                {client.name}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </Container>
     </section>
   );
 }

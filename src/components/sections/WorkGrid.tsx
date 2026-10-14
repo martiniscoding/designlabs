@@ -2,6 +2,7 @@ import { type CSSProperties } from "react";
 import Image from "next/image";
 import { works, type Work } from "@/content/works";
 import { PhoneGroup } from "@/components/ui/IPhone";
+import WorkCaption from "@/components/ui/WorkCaption";
 
 /* ------------------------------------------------------------------
    Masonry, not a row grid. Each tile is cut to its own screenshot's ratio
@@ -32,23 +33,17 @@ function Tile({ work, index }: { work: Work; index: number }) {
     );
 
   const shot = (
-    // Wrapper carries the ratio and the corner marks; the inner box clips the
-    // image behind a thin grey frame, so the whole screenshot reads as framed.
-    <div className="relative bg-white px-7 py-6 sm:px-10 sm:py-8">
+    // Keep the screenshot's ratio and white spacing around the preview.
+    <div className="p-2 sm:p-3">
       <div
         className={`relative ${work.kind === "app" ? "aspect-[16/10]" : ""}`}
         style={work.kind === "site" ? { aspectRatio: work.ratio } : undefined}
       >
-        <div className="@container relative h-full overflow-hidden bg-card">
+        <div className="@container relative h-full overflow-hidden rounded-[10px] bg-card">
           {media}
         </div>
       </div>
-      {/* Grey rules sit on the image edges but run out to the white box edges. */}
-      <span aria-hidden="true" className="pointer-events-none absolute inset-0 z-20 text-ink/15">
-        <span className="absolute inset-x-0 bottom-6 h-px bg-current sm:bottom-8" />
-        <span className="absolute inset-y-0 left-7 w-px bg-current sm:left-10" />
-        <span className="absolute inset-y-0 right-7 w-px bg-current sm:right-10" />
-      </span>
+      <WorkCaption work={work} index={index} />
     </div>
   );
 
@@ -58,7 +53,7 @@ function Tile({ work, index }: { work: Work; index: number }) {
       // Capped, or the last tiles in a long list arrive uncomfortably late.
       style={{ animationDelay: `${Math.min(index, 9) * 55}ms` } as CSSProperties}
     >
-      <div className="h-full rounded-[4px] p-2 transition-[translate] duration-500 ease-[var(--ease-out-soft)] hover:-translate-y-1">
+      <div className="overflow-hidden rounded-[16px] border border-[#e2e3e8] bg-white transition-[translate] duration-500 ease-[var(--ease-out-soft)] hover:-translate-y-1">
         {shot}
       </div>
     </li>
