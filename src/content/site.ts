@@ -430,7 +430,7 @@ export const projects = {
   /* Six works, each tagged with the kind of project it was. */
   items: [
     { slug: "intelligence", tag: "AI Platform" },
-    { slug: "daily-brief", tag: "Mobile App" },
+    { slug: "vanter", tag: "Mobile App" },
     { slug: "clearsignal", tag: "Dashboard Design" },
     { slug: "flowship", tag: "Landing Page" },
     { slug: "qiro", tag: "Fintech Landing" },
