@@ -3,7 +3,7 @@
 import { useLayoutEffect, useRef, useState } from "react";
 import { pricing, site } from "@/content/site";
 import { gsap, reducedMotion } from "@/lib/gsap";
-import { CallIcon, ClockIcon, MessageIcon } from "@/components/Icons";
+import { CallIcon, ClockIcon } from "@/components/Icons";
 import { Tick } from "@/components/ui/Bits";
 
 const fmt = (n: number) => `$${n.toLocaleString("en-US")}`;
@@ -153,13 +153,6 @@ export default function Pricing() {
             </div>
 
             <div className="mt-4 flex flex-wrap gap-3">
-              <a
-                href={`mailto:${site.email}`}
-                className="inline-flex items-center gap-2.5 rounded-full bg-ink px-6 py-3.5 text-[0.9375rem] font-medium text-white transition-colors hover:bg-ink-2"
-              >
-                <MessageIcon />
-                Send a message
-              </a>
               <a
                 href={site.booking}
                 className="inline-flex items-center gap-2.5 rounded-full bg-card px-6 py-3.5 text-[0.9375rem] font-medium text-ink shadow-[0_10px_24px_-14px_rgba(30,36,48,0.45)] transition-transform duration-300 hover:-translate-y-0.5"

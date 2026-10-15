@@ -148,15 +148,15 @@ export const pricing = {
 };
 
 /**
- * Real client reviews, verbatim from Build Labs (buildlabs.agency), the
+ * Client reviews shown in the testimonials section.
  * owner's development company. Quotes are unedited — keep them that way.
  * `highlight` must be an exact substring of `quote`.
  */
 export const testimonials = [
-  { quote: "Buildlabs helped Skanaus deliver a smooth and intuitive mobile experience. The UI is sleek, onboarding is seamless, and the app performs flawlessly on all devices.", highlight: "The UI is sleek, onboarding is seamless", name: "Corey Payne", role: "Founder, Skanaus App", photo: "/testimonial/corey.jpeg" },
-  { quote: "Unicapp App's mobile experience improved dramatically. Buildlabs delivered intuitive navigation, smooth onboarding flows, and a polished interface our users love.", highlight: "a polished interface our users love", name: "Prahlad", role: "Founder, Unicapp App", photo: "/testimonial/prahlad.jpeg" },
-  { quote: "Ryne AI's website now engages users like never before. Buildlabs crafted a polished, interactive interface that feels intuitive and visually stunning across devices.", highlight: "visually stunning across devices", name: "Arefin", role: "COO, Ryne AI", photo: "/testimonial/Arefin.webp" },
-  { quote: "Our mobile apps now feel premium and engaging thanks to Buildlabs. The attention to detail in design and performance is exceptional.", highlight: "The attention to detail in design and performance is exceptional", name: "Olivia Martinez", role: "Marketing Manager", photo: "/testimonial/olivia.jpeg" },
+  { quote: "DesignLabs helped Skanaus deliver a smooth and intuitive mobile experience. The UI is sleek, onboarding is seamless, and the app performs flawlessly on all devices.", highlight: "The UI is sleek, onboarding is seamless", name: "Corey Payne", role: "Founder, Skanaus App", photo: "/testimonial/corey.jpeg" },
+  { quote: "Unicapp App's mobile experience improved dramatically. DesignLabs delivered intuitive navigation, smooth onboarding flows, and a polished interface our users love.", highlight: "a polished interface our users love", name: "Prahlad", role: "Founder, Unicapp App", photo: "/testimonial/prahlad.jpeg" },
+  { quote: "Ryne AI's website now engages users like never before. DesignLabs crafted a polished, interactive interface that feels intuitive and visually stunning across devices.", highlight: "visually stunning across devices", name: "Arefin", role: "COO, Ryne AI", photo: "/testimonial/Arefin.webp" },
+  { quote: "Our mobile apps now feel premium and engaging thanks to DesignLabs. The attention to detail in design and performance is exceptional.", highlight: "The attention to detail in design and performance is exceptional", name: "Olivia Martinez", role: "Marketing Manager", photo: "/testimonial/olivia.jpeg" },
 ];
 
 export const testimonialsIntro = {

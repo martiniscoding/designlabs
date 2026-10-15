@@ -4,7 +4,6 @@ import Projects from "@/components/sections/Projects";
 import Services from "@/components/sections/Services";
 import Impact from "@/components/sections/Impact";
 import Testimonials from "@/components/sections/Testimonials";
-import Process from "@/components/sections/Process";
 import Faq from "@/components/sections/Faq";
 import Footer from "@/components/sections/Footer";
 
@@ -18,7 +17,6 @@ export default function Page() {
       <Container className="flex flex-col gap-28 pt-28 pb-4 lg:gap-40 lg:pt-40">
         <Services />
         <Impact />
-        <Process />
         <Testimonials />
         <Faq />
         <Footer />
