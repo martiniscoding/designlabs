@@ -39,6 +39,7 @@ export const works: Work[] = [
   site("yg-doors", "Pikko", "Food delivery operations dashboard", 1.5),
   site("qiro", "Qiro", "DeFi lending landing", 1.732),
   site("icnoc", "Knox", "Shopify ecommerce agency landing", 1.639),
+  site("mirage-ai", "Mirage.ai", "AI authentication experience", 1.333),
 ];
 
 export const workBySlug = (slug: string) => {

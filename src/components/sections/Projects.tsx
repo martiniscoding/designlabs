@@ -71,6 +71,7 @@ function Card({ work, index }: { work: Work; index: number }) {
         alt={`${work.name} website`}
         fill
         sizes="(min-width: 1024px) 560px, (min-width: 640px) 50vw, 100vw"
+        priority={index === 0}
         className="object-cover object-top transition-transform duration-700 ease-[var(--ease-out-soft)] group-hover:scale-[1.03]"
       />
     );

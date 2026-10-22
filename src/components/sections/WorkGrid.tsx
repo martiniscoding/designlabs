@@ -28,6 +28,7 @@ function Tile({ work, index }: { work: Work; index: number }) {
         alt={`${work.name} website`}
         fill
         sizes={shotSizes}
+        priority={index < 2}
         className="object-cover object-top"
       />
     );
