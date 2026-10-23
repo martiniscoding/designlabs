@@ -31,7 +31,7 @@ export const works: Work[] = [
   site("acre", "Wayo", "Travel discovery mobile app", 1.5),
   site("discovery", "Orion", "AI sales platform landing", 1.5),
   site("rexai", "RexAI", "AI onboarding interface", 1.592),
-  site("daily-brief", "Piplo", "Kids discovery platform landing", 1.5),
+  site("daily-brief", "Sway", "Personalized music mobile app", 1.5),
   site("account-flow", "Nodi Pro", "AI mobile app landing", 1.333),
   site("flowship", "Kintra", "Team collaboration workspace", 1.333),
   site("freight", "Soundkin", "Audio production studio website", 1.333),
