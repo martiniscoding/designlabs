@@ -6,10 +6,7 @@ import Image from "next/image";
 const clients = [
   { slug: "fincrux", name: "Fincrux" },
   { slug: "ryne-ai", name: "Ryne AI" },
-  { slug: "chatdoc", name: "ChatDOC" },
-  { slug: "qiro", name: "Qiro", text: true },
-  { slug: "knox", name: "Knox", text: true },
-  { slug: "lp-grid", name: "LP Grid", text: true },
+  { slug: "chatdoc", name: "Chatdoc" },
   { slug: "volnex", name: "Volnex" },
   { slug: "goroam", name: "GoRoam" },
 ];
@@ -141,27 +138,25 @@ export default function Hero() {
           </a>
         </div>
 
-        <div className="mt-16 w-full max-w-[1180px] sm:mt-20 lg:mt-24">
-          <div className="flex items-center justify-center gap-4 sm:gap-6">
-            <span aria-hidden="true" className="h-px flex-1 bg-ink/10" />
-            <p className="whitespace-nowrap text-xs font-semibold tracking-[0.04em] text-muted sm:text-sm">
+        <div className="mt-16 w-full max-w-[640px] sm:mt-20 lg:mt-24">
+          <div className="flex items-center justify-center gap-5">
+            <span aria-hidden="true" className="h-px w-12 bg-ink/10 sm:w-20" />
+            <p className="text-xs font-semibold tracking-[0.04em] text-muted sm:text-sm">
               Trusted by ambitious founders
             </p>
-            <span aria-hidden="true" className="h-px flex-1 bg-ink/10" />
+            <span aria-hidden="true" className="h-px w-12 bg-ink/10 sm:w-20" />
           </div>
-          <ul className="mx-auto mt-7 grid max-w-[1080px] grid-cols-2 items-center justify-items-center gap-x-6 gap-y-6 sm:grid-cols-4 sm:gap-x-8 sm:gap-y-7 lg:flex lg:flex-nowrap lg:justify-center lg:gap-x-9">
+          <ul className="mt-6 flex flex-wrap items-center justify-center gap-x-7 gap-y-5 sm:gap-x-9">
             {clients.map((client) => (
-              <li key={client.slug} className="flex min-w-0 items-center justify-center gap-2 text-[0.9375rem] font-semibold tracking-[-0.025em] text-[#62666D] sm:text-base">
-                {!client.text && (
-                  <Image
-                    src={`/logos/${client.slug}.png`}
-                    alt={client.name}
-                    width={28}
-                    height={28}
-                    className="h-6 w-6 shrink-0 object-contain grayscale opacity-90 contrast-125"
-                  />
-                )}
-                <span className="whitespace-nowrap">{client.name}</span>
+              <li key={client.slug} className="flex items-center gap-2 text-sm font-medium text-ink-2/75">
+                <Image
+                  src={`/logos/${client.slug}.png`}
+                  alt=""
+                  width={28}
+                  height={28}
+                  className="h-6 w-6 object-contain opacity-65 grayscale"
+                />
+                {client.name}
               </li>
             ))}
           </ul>
