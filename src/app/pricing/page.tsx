@@ -6,9 +6,16 @@ import { pricingTeaser } from "@/content/site";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/pricing" },
-  title: "Pricing | DesignLabs",
+  title: "Pricing | The Design Labs",
   description:
     "Fixed prices for launch sites, brand systems and product UI, plus a monthly retainer. The numbers are on the page.",
+  openGraph: {
+    title: "Pricing | The Design Labs",
+    description: "Fixed prices for launch sites, brand systems and product UI.",
+    type: "website",
+    url: "https://www.thedesignlabs.agency/pricing",
+  },
+  twitter: { card: "summary_large_image", title: "Pricing | The Design Labs", description: "Fixed prices for launch sites, brand systems and product UI." },
 };
 
 export default function PricingPage() {

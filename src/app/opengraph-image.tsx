@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 
-export const alt = "DesignLabs | Design for products that are better than they look";
+export const alt = "The Design Labs | UI/UX, SaaS & Web Design Agency";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

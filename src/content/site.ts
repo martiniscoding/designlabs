@@ -22,6 +22,7 @@ export const nav: {
 }[] = [
   { id: "home", label: "Home", href: "/#home", section: true },
   { id: "work", label: "Work", href: "/work" },
+  { id: "motion", label: "Motion", href: "/motion" },
   { id: "pricing", label: "Pricing", href: "/pricing" },
 ];
 

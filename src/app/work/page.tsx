@@ -5,8 +5,15 @@ import Footer from "@/components/sections/Footer";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/work" },
-  title: "Work | DesignLabs",
-  description: "Websites and mobile apps we have designed and shipped.",
+  title: "Work | The Design Labs",
+  description: "Selected UI/UX, SaaS, web and mobile app design projects by The Design Labs.",
+  openGraph: {
+    title: "Work | The Design Labs",
+    description: "Selected UI/UX, SaaS, web and mobile app design projects by The Design Labs.",
+    type: "website",
+    url: "https://www.thedesignlabs.agency/work",
+  },
+  twitter: { card: "summary_large_image", title: "Work | The Design Labs", description: "Selected UI/UX, SaaS, web and mobile app design projects by The Design Labs." },
 };
 
 export default function WorkPage() {

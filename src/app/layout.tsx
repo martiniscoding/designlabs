@@ -6,7 +6,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.thedesignlabs.agency"),
   alternates: { canonical: "/" },
-  title: "DesignLabs | Design for products that are better than they look",
+  title: "The Design Labs | UI/UX, SaaS & Web Design Agency",
   description:
     "Design that makes your product stand out. A product design studio for startups and SaaS, interfaces, brand systems and websites that earn trust at first glance.",
   icons: {
@@ -17,15 +17,15 @@ export const metadata: Metadata = {
     apple: "/apple-icon.png",
   },
   openGraph: {
-    title: "DesignLabs",
+    title: "The Design Labs | UI/UX, SaaS & Web Design Agency",
     description: "Design that makes your product stand out.",
     type: "website",
     locale: "en_GB",
     url: "https://www.thedesignlabs.agency/",
-    siteName: "DesignLabs",
+    siteName: "The Design Labs",
     images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "DesignLabs" }],
   },
-  twitter: { card: "summary_large_image", title: "DesignLabs", description: "Design that makes your product stand out." },
+  twitter: { card: "summary_large_image", title: "The Design Labs | UI/UX, SaaS & Web Design Agency", description: "Design that makes your product stand out." },
 };
 
 export default function RootLayout({
@@ -53,13 +53,26 @@ export default function RootLayout({
       <body>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "ProfessionalService",
-          name: "DesignLabs",
-          url: "https://www.thedesignlabs.agency/",
-          logo: "https://www.thedesignlabs.agency/logo.png",
-          description: "A product design studio for startups and SaaS, interfaces, brand systems and websites.",
-          areaServed: "Worldwide",
-          serviceType: ["SaaS product design", "Website design", "Web and mobile app design", "Design systems"],
+          "@graph": [
+            {
+              "@type": "Organization",
+              "@id": "https://www.thedesignlabs.agency/#organization",
+              name: "The Design Labs",
+              alternateName: "DesignLabs",
+              url: "https://www.thedesignlabs.agency/",
+              logo: "https://www.thedesignlabs.agency/logo.png",
+              description: "UI/UX, SaaS, web and mobile app design for startups and growing products.",
+              areaServed: "Worldwide",
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://www.thedesignlabs.agency/#website",
+              name: "The Design Labs",
+              alternateName: "DesignLabs",
+              url: "https://www.thedesignlabs.agency/",
+              publisher: { "@id": "https://www.thedesignlabs.agency/#organization" },
+            },
+          ],
         }) }} />
         <ClientMotion />
         {children}
