@@ -8,17 +8,24 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
   title: "DesignLabs | Design for products that are better than they look",
   description:
-    "A design studio for technical founders. Product UI, brand systems and launch sites for dev tools and B2B software.",
+    "Design that makes your product stand out. A product design studio for startups and SaaS, interfaces, brand systems and websites that earn trust at first glance.",
+  icons: {
+    icon: [
+      { url: "/icon.png", type: "image/png", sizes: "512x512" },
+      { url: "/favicon.ico", type: "image/x-icon" },
+    ],
+    apple: "/apple-icon.png",
+  },
   openGraph: {
     title: "DesignLabs",
-    description: "Design for products that are better than they look.",
+    description: "Design that makes your product stand out.",
     type: "website",
     locale: "en_GB",
     url: "https://www.thedesignlabs.agency/",
     siteName: "DesignLabs",
     images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "DesignLabs" }],
   },
-  twitter: { card: "summary_large_image", title: "DesignLabs", description: "Design for products that are better than they look." },
+  twitter: { card: "summary_large_image", title: "DesignLabs", description: "Design that makes your product stand out." },
 };
 
 export default function RootLayout({
