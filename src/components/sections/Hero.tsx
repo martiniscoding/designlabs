@@ -29,39 +29,11 @@ export default function Hero() {
     >
       <div className="hero-glow" aria-hidden="true" />
 
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute top-8 right-2 z-0 hidden w-[24vw] max-w-[380px] lg:block"
-      >
-        <Image
-          src="/illustrations/paper-airplane.png"
-          alt=""
-          width={1536}
-          height={1024}
-          sizes="24vw"
-          className="h-auto w-full"
-        />
-      </div>
-
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute bottom-0 -left-[16.02vw] z-0 hidden w-[40.94vw] max-w-[658.6px] lg:block"
-      >
-        <Image
-          src="/illustrations/stone-hand-peach.png"
-          alt=""
-          width={1536}
-          height={1024}
-          sizes="40.94vw"
-          className="h-auto w-full"
-        />
-      </div>
-
       <Container className="relative z-10 flex flex-1 flex-col items-center justify-center pt-16 pb-14 text-center sm:pt-20 sm:pb-16 lg:pt-[clamp(5rem,12vh,8rem)] lg:pb-20">
         {/* The count is the real number of projects on the Work page. */}
         <p
           data-hero-eyebrow
-          className="inline-flex items-center gap-2.5 rounded-full bg-white/95 px-5 py-2.5 text-sm font-medium tracking-[-0.025em] text-ink shadow-[0_5px_18px_-8px_rgba(191,109,61,0.22)] sm:text-[0.9375rem]"
+          className="inline-flex items-center gap-2.5 rounded-full bg-white/95 px-5 py-2.5 text-sm font-medium tracking-[-0.025em] text-ink sm:text-[0.9375rem]"
         >
           <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-accent" />
           {works.length} Shipped Projects
@@ -95,7 +67,7 @@ export default function Hero() {
         >
           <a
             href={hero.primary.href}
-            className={`${button} bg-accent text-white shadow-[0_14px_28px_-14px_var(--color-accent)] hover:shadow-[0_18px_32px_-14px_var(--color-accent)]`}
+            className={`${button} bg-accent text-white`}
           >
             {hero.primary.label}
             <span className={tileOnAccent}>
@@ -116,7 +88,7 @@ export default function Hero() {
           </a>
           <a
             href={hero.secondary.href}
-            className={`${button} border border-line bg-card text-ink shadow-[0_10px_24px_-16px_rgba(30,36,48,0.4)] hover:border-ink/20`}
+            className={`${button} border border-line bg-card text-ink hover:border-ink/20`}
           >
             {hero.secondary.label}
             <span className={tileOnWhite}>

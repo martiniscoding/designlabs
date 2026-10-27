@@ -31,7 +31,7 @@ export const hero = {
   sub:
     "A product design studio for startups and SaaS, interfaces, brand " +
     "systems and websites that earn trust at first glance.",
-  primary: { label: "Book a call", href: "https://cal.com/plumbline/intro" },
+  primary: { label: "Book a call", href: "https://cal.com/designlabs-u8sdoz/15min" },
   secondary: { label: "See the work", href: "/work" },
 };
 
