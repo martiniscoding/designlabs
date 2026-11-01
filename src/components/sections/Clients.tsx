@@ -21,9 +21,16 @@ export default function Clients() {
 
         <div className="mt-12 grid grid-cols-2 gap-2.5 rounded-[2rem] bg-[#e9e8e4] p-2.5 sm:grid-cols-3 lg:mt-16 lg:grid-cols-4">
           {clients.map((client) => (
-            <div key={client.slug} className="flex min-h-36 items-center justify-center rounded-[1.5rem] bg-white px-5 text-center text-2xl font-semibold tracking-[-0.06em] text-ink sm:min-h-44 sm:text-3xl">
+            <a
+              key={client.slug}
+              href={client.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Visit ${client.name} website in a new tab`}
+              className="flex min-h-36 items-center justify-center rounded-[1.5rem] bg-white px-5 text-center text-2xl font-semibold tracking-[-0.06em] text-ink transition-transform duration-300 hover:-translate-y-1 sm:min-h-44 sm:text-3xl"
+            >
               {client.name}
-            </div>
+            </a>
           ))}
           <div className="flex min-h-36 items-center justify-center rounded-[1.5rem] bg-[#252525] px-5 text-center text-2xl font-semibold tracking-[-0.05em] text-white sm:min-h-44 sm:text-3xl">
             +20 Startups
