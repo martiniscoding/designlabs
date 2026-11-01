@@ -30,7 +30,7 @@ export default function Hero() {
 
         <h1
           data-hero-head
-          className="display mt-7 text-[clamp(2.125rem,5.8vw,5rem)] leading-[1.06] text-ink sm:mt-8"
+          className="display mt-7 text-[clamp(2.3rem,6vw,5.4rem)] leading-[1.06] text-ink sm:mt-8"
         >
           {hero.headline.map((line) => (
             <span key={line} className="block sm:whitespace-nowrap">
@@ -45,7 +45,7 @@ export default function Hero() {
 
         <p
           data-hero-sub
-          className="mt-6 max-w-[54ch] text-[clamp(1rem,1.5vw,1.25rem)] leading-[1.6] tracking-[-0.025em] text-muted sm:mt-7"
+          className="mt-6 max-w-[54ch] text-[clamp(1.05rem,1.6vw,1.35rem)] leading-[1.6] tracking-[-0.025em] text-muted sm:mt-7"
         >
           {hero.sub}
         </p>
