@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "components": {
+    "rf_e08af126d489c32e6efe7317": {
+      "id": "rf_e08af126d489c32e6efe7317",
+      "name": "Free Intro Chat",
+      "slug": "free-intro-chat",
+      "version": 2,
+      "checksum": "dbb1d3bd7fa4513ae08427139f53f4114d5efbf756d170e6aa0cf24012bf2534",
+      "format": "typescript",
+      "files": [
+        "components/free-intro-chat.runtime.jsx",
+        "components/free-intro-chat.jsx",
+        "components/free-intro-chat.tsx",
+        "styles/free-intro-chat.css",
+        "meta/components/free-intro-chat.json",
+        "assets/fonts/e-pu-n3m-cjzaj-ihny-cdv-kbfi-zky-y0.woff2",
+        "assets/fonts/f3kdpd2-n0c-to-wv5hua-zjjg-m.woff2",
+        "assets/fonts/gaz-zkzu-uetvr9-ulhd-a4-spr-p0-az0.woff2",
+        "assets/fonts/i11-lrmu-bdqzwepl-j62-kk-vskl-u5-y.woff2",
+        "assets/fonts/ig8-b8nzy11hz-iweiynkg91sofjo.woff2",
+        "assets/fonts/ii21jn-sjkul-bks-hhxklapi7fv9w.woff2",
+        "assets/fonts/iw-wtdc49-enf2t-chbql-narxw6-ug.woff2",
+        "assets/fonts/mj3-n6lf-n4i-p5-um8r-jgq-lyl03t-e.woff2",
+        "assets/fonts/node-0-seemm-wc3vovhaai4-rl-rqswrrz0.woff2",
+        "assets/fonts/node-0i-dmxkiz-u9go-zoclq-iqs-v5rv-etu.woff2",
+        "assets/fonts/node-8exw-vhjy2-dh-j4-n5pr-yl-vmr-ekm-q.woff2",
+        "assets/fonts/pe8-roujo-pxu-tzhqo-nz-yq-hx2-mxa.woff2",
+        "assets/fonts/pfd-opgz-ff7-n2-uye9-jx7x-rkytg-sc.woff2",
+        "assets/fonts/q-itwj2-wd-g0wrg-qpdb8lvn-yn-txdg.woff2",
+        "assets/fonts/q-qhxg-tn-ek6-czu1y-w4x-s82-hqwfok.woff2",
+        "assets/fonts/qct-qfo-jq-j9a-ib-rsip0-ah-cqp-fxn8.woff2",
+        "assets/fonts/r0mv3-negm-a0akc-qs-nfot-g32-las.woff2",
+        "assets/fonts/te-gh-wnh-h3b-cqef-kgs-isq-fy3h-k8.woff2",
+        "assets/fonts/uj-fzpdy3q-gu-dkt-qm4q9-cxh-kf-ia8.woff2",
+        "assets/fonts/uteed-ek21h-o5j-dx-euldzd-sc-uqpg.woff2",
+        "assets/fonts/v3j1-l0o5v-pfke26-sw4-hcp-xcf-ho.woff2"
+      ],
+      "installedAt": "2026-10-31T19:37:02.756Z"
+    }
+  }
+}

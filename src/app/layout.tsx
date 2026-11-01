@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { inter } from "@/lib/fonts";
 import ClientMotion from "@/components/ClientMotion";
+import "@/components/framer/styles.css";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -10,10 +11,8 @@ export const metadata: Metadata = {
   description:
     "Design that makes your product stand out. A product design studio for startups and SaaS, interfaces, brand systems and websites that earn trust at first glance.",
   icons: {
-    icon: [
-      { url: "/icon.png", type: "image/png", sizes: "512x512" },
-      { url: "/favicon.ico", type: "image/x-icon" },
-    ],
+    // A new URL prevents browsers from reusing the previously cached tab icon.
+    icon: [{ url: "/designlabs-favicon.png", type: "image/png", sizes: "512x512" }],
     apple: "/apple-icon.png",
   },
   openGraph: {

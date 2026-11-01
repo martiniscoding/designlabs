@@ -1,15 +1,6 @@
 import { hero } from "@/content/site";
 import { works } from "@/content/works";
 import { Container } from "@/components/Shell";
-import Image from "next/image";
-
-const clients = [
-  { slug: "fincrux", name: "Fincrux" },
-  { slug: "ryne-ai", name: "Ryne AI" },
-  { slug: "chatdoc", name: "Chatdoc" },
-  { slug: "volnex", name: "Volnex" },
-  { slug: "goroam", name: "GoRoam" },
-];
 
 const button =
   "group inline-flex items-center gap-5 rounded-2xl py-2 pr-2 pl-6 text-[1.0625rem] font-semibold tracking-[-0.02em] transition-[translate,box-shadow,background-color] duration-300 ease-[var(--ease-out-soft)] hover:-translate-y-0.5";
@@ -27,8 +18,6 @@ export default function Hero() {
       id="home"
       className="relative isolate flex min-h-[calc(100svh-72px)] flex-col overflow-hidden bg-[#fcf9f5]"
     >
-      <div className="hero-glow" aria-hidden="true" />
-
       <Container className="relative z-10 flex flex-1 flex-col items-center justify-center pt-16 pb-14 text-center sm:pt-20 sm:pb-16 lg:pt-[clamp(5rem,12vh,8rem)] lg:pb-20">
         {/* The count is the real number of projects on the Work page. */}
         <p
@@ -110,29 +99,6 @@ export default function Hero() {
           </a>
         </div>
 
-        <div className="mt-16 w-full max-w-[640px] sm:mt-20 lg:mt-24">
-          <div className="flex items-center justify-center gap-5">
-            <span aria-hidden="true" className="h-px w-12 bg-ink/10 sm:w-20" />
-            <p className="text-xs font-semibold tracking-[0.04em] text-muted sm:text-sm">
-              Trusted by ambitious founders
-            </p>
-            <span aria-hidden="true" className="h-px w-12 bg-ink/10 sm:w-20" />
-          </div>
-          <ul className="mt-6 flex flex-wrap items-center justify-center gap-x-7 gap-y-5 sm:gap-x-9">
-            {clients.map((client) => (
-              <li key={client.slug} className="flex items-center gap-2 text-sm font-medium text-ink-2/75">
-                <Image
-                  src={`/logos/${client.slug}.png`}
-                  alt=""
-                  width={28}
-                  height={28}
-                  className="h-6 w-6 object-contain opacity-65 grayscale"
-                />
-                {client.name}
-              </li>
-            ))}
-          </ul>
-        </div>
       </Container>
     </section>
   );

@@ -1,0 +1,522 @@
+{
+  "id": "rf_e08af126d489c32e6efe7317",
+  "name": "Free Intro Chat",
+  "slug": "free-intro-chat",
+  "version": 2,
+  "checksum": "dbb1d3bd7fa4513ae08427139f53f4114d5efbf756d170e6aa0cf24012bf2534",
+  "updatedAt": "2026-10-30T12:51:34.615Z",
+  "payload": {
+    "project": {
+      "id": "942ad0e64e24690cd1dd2478b6854770fa50874e71f90b1fea302f7f312306be",
+      "name": "Orris Studio (copy)",
+      "apiVersion1Id": "1213465868"
+    },
+    "exporter": "reframe",
+    "components": [
+      {
+        "id": "xPhvInwEv",
+        "name": "Free Intro Chat",
+        "slug": "free-intro-chat",
+        "source": "project",
+        "variants": [
+          {
+            "id": "pNaQy2pwm",
+            "name": "Variant 1",
+            "width": "416px",
+            "isPrimary": true,
+            "isBreakpoint": false,
+            "inheritsFromId": null
+          },
+          {
+            "id": "PNlp4LFMt",
+            "name": "Step-3",
+            "width": "416px",
+            "isPrimary": false,
+            "isBreakpoint": false,
+            "inheritsFromId": "pNaQy2pwm"
+          },
+          {
+            "id": "PxmhVAW8p",
+            "name": "Step-2",
+            "width": "416px",
+            "isPrimary": false,
+            "isBreakpoint": false,
+            "inheritsFromId": "pNaQy2pwm"
+          },
+          {
+            "id": "hHo0di3gv",
+            "name": "Desktop",
+            "width": "555px",
+            "isPrimary": false,
+            "isBreakpoint": false,
+            "inheritsFromId": "pNaQy2pwm"
+          },
+          {
+            "id": "V8EY8O_bE",
+            "name": "Step-3",
+            "width": "555px",
+            "isPrimary": false,
+            "isBreakpoint": false,
+            "inheritsFromId": "pNaQy2pwm"
+          },
+          {
+            "id": "Zm73eBCXX",
+            "name": "Step-2",
+            "width": "555px",
+            "isPrimary": false,
+            "isBreakpoint": false,
+            "inheritsFromId": "pNaQy2pwm"
+          },
+          {
+            "id": "WbyPbw9Tl",
+            "name": "1280",
+            "width": "370px",
+            "isPrimary": false,
+            "isBreakpoint": false,
+            "inheritsFromId": "pNaQy2pwm"
+          },
+          {
+            "id": "dhhLsPrnA",
+            "name": "Step-3",
+            "width": "370px",
+            "isPrimary": false,
+            "isBreakpoint": false,
+            "inheritsFromId": "pNaQy2pwm"
+          },
+          {
+            "id": "tDSw17c3S",
+            "name": "Step-2",
+            "width": "370px",
+            "isPrimary": false,
+            "isBreakpoint": false,
+            "inheritsFromId": "pNaQy2pwm"
+          },
+          {
+            "id": "Ji3NJajOP",
+            "name": "998",
+            "width": "287px",
+            "isPrimary": false,
+            "isBreakpoint": false,
+            "inheritsFromId": "pNaQy2pwm"
+          },
+          {
+            "id": "TduTT2vDD",
+            "name": "Step-3",
+            "width": "287px",
+            "isPrimary": false,
+            "isBreakpoint": false,
+            "inheritsFromId": "pNaQy2pwm"
+          },
+          {
+            "id": "G7832eczU",
+            "name": "Step-2",
+            "width": "287px",
+            "isPrimary": false,
+            "isBreakpoint": false,
+            "inheritsFromId": "pNaQy2pwm"
+          },
+          {
+            "id": "YNBLEXUll",
+            "name": "768",
+            "width": "674px",
+            "isPrimary": false,
+            "isBreakpoint": false,
+            "inheritsFromId": "pNaQy2pwm"
+          },
+          {
+            "id": "cRUPePz3A",
+            "name": "Step-2",
+            "width": "674px",
+            "isPrimary": false,
+            "isBreakpoint": false,
+            "inheritsFromId": "pNaQy2pwm"
+          },
+          {
+            "id": "plyIWSEfB",
+            "name": "Step-3",
+            "width": "674px",
+            "isPrimary": false,
+            "isBreakpoint": false,
+            "inheritsFromId": "pNaQy2pwm"
+          },
+          {
+            "id": "bkjcpzoWa",
+            "name": "568",
+            "width": "498px",
+            "isPrimary": false,
+            "isBreakpoint": false,
+            "inheritsFromId": "pNaQy2pwm"
+          },
+          {
+            "id": "QtzCzGVvY",
+            "name": "Step-2",
+            "width": "498px",
+            "isPrimary": false,
+            "isBreakpoint": false,
+            "inheritsFromId": "pNaQy2pwm"
+          },
+          {
+            "id": "pp4G4pHpB",
+            "name": "Step-3",
+            "width": "498px",
+            "isPrimary": false,
+            "isBreakpoint": false,
+            "inheritsFromId": "pNaQy2pwm"
+          },
+          {
+            "id": "r6RKU7h2E",
+            "name": "390",
+            "width": "330px",
+            "isPrimary": false,
+            "isBreakpoint": false,
+            "inheritsFromId": "pNaQy2pwm"
+          },
+          {
+            "id": "r1ZgP7e8c",
+            "name": "Step-2",
+            "width": "330px",
+            "isPrimary": false,
+            "isBreakpoint": false,
+            "inheritsFromId": "pNaQy2pwm"
+          },
+          {
+            "id": "dgMDcCYIN",
+            "name": "Step-3",
+            "width": "330px",
+            "isPrimary": false,
+            "isBreakpoint": false,
+            "inheritsFromId": "pNaQy2pwm"
+          }
+        ],
+        "moduleUrl": "https://framer.com/m/Free-Intro-Chat-OwSUxp.js@LteOfgEroCZvWwjQA2Oe",
+        "componentIdentifier": "local-module:canvasComponent/xPhvInwEv:default"
+      }
+    ],
+    "generatedAt": "2026-10-30T12:51:31.275Z",
+    "schemaVersion": 1,
+    "framerProjectId": "942ad0e64e24690cd1dd2478b6854770fa50874e71f90b1fea302f7f312306be",
+    "framerProjectName": "Orris Studio (copy)",
+    "selectedComponent": {
+      "id": "xPhvInwEv",
+      "name": "Free Intro Chat",
+      "slug": "free-intro-chat",
+      "source": "project",
+      "variants": [
+        {
+          "id": "pNaQy2pwm",
+          "name": "Variant 1",
+          "width": "416px",
+          "isPrimary": true,
+          "isBreakpoint": false,
+          "inheritsFromId": null
+        },
+        {
+          "id": "PNlp4LFMt",
+          "name": "Step-3",
+          "width": "416px",
+          "isPrimary": false,
+          "isBreakpoint": false,
+          "inheritsFromId": "pNaQy2pwm"
+        },
+        {
+          "id": "PxmhVAW8p",
+          "name": "Step-2",
+          "width": "416px",
+          "isPrimary": false,
+          "isBreakpoint": false,
+          "inheritsFromId": "pNaQy2pwm"
+        },
+        {
+          "id": "hHo0di3gv",
+          "name": "Desktop",
+          "width": "555px",
+          "isPrimary": false,
+          "isBreakpoint": false,
+          "inheritsFromId": "pNaQy2pwm"
+        },
+        {
+          "id": "V8EY8O_bE",
+          "name": "Step-3",
+          "width": "555px",
+          "isPrimary": false,
+          "isBreakpoint": false,
+          "inheritsFromId": "pNaQy2pwm"
+        },
+        {
+          "id": "Zm73eBCXX",
+          "name": "Step-2",
+          "width": "555px",
+          "isPrimary": false,
+          "isBreakpoint": false,
+          "inheritsFromId": "pNaQy2pwm"
+        },
+        {
+          "id": "WbyPbw9Tl",
+          "name": "1280",
+          "width": "370px",
+          "isPrimary": false,
+          "isBreakpoint": false,
+          "inheritsFromId": "pNaQy2pwm"
+        },
+        {
+          "id": "dhhLsPrnA",
+          "name": "Step-3",
+          "width": "370px",
+          "isPrimary": false,
+          "isBreakpoint": false,
+          "inheritsFromId": "pNaQy2pwm"
+        },
+        {
+          "id": "tDSw17c3S",
+          "name": "Step-2",
+          "width": "370px",
+          "isPrimary": false,
+          "isBreakpoint": false,
+          "inheritsFromId": "pNaQy2pwm"
+        },
+        {
+          "id": "Ji3NJajOP",
+          "name": "998",
+          "width": "287px",
+          "isPrimary": false,
+          "isBreakpoint": false,
+          "inheritsFromId": "pNaQy2pwm"
+        },
+        {
+          "id": "TduTT2vDD",
+          "name": "Step-3",
+          "width": "287px",
+          "isPrimary": false,
+          "isBreakpoint": false,
+          "inheritsFromId": "pNaQy2pwm"
+        },
+        {
+          "id": "G7832eczU",
+          "name": "Step-2",
+          "width": "287px",
+          "isPrimary": false,
+          "isBreakpoint": false,
+          "inheritsFromId": "pNaQy2pwm"
+        },
+        {
+          "id": "YNBLEXUll",
+          "name": "768",
+          "width": "674px",
+          "isPrimary": false,
+          "isBreakpoint": false,
+          "inheritsFromId": "pNaQy2pwm"
+        },
+        {
+          "id": "cRUPePz3A",
+          "name": "Step-2",
+          "width": "674px",
+          "isPrimary": false,
+          "isBreakpoint": false,
+          "inheritsFromId": "pNaQy2pwm"
+        },
+        {
+          "id": "plyIWSEfB",
+          "name": "Step-3",
+          "width": "674px",
+          "isPrimary": false,
+          "isBreakpoint": false,
+          "inheritsFromId": "pNaQy2pwm"
+        },
+        {
+          "id": "bkjcpzoWa",
+          "name": "568",
+          "width": "498px",
+          "isPrimary": false,
+          "isBreakpoint": false,
+          "inheritsFromId": "pNaQy2pwm"
+        },
+        {
+          "id": "QtzCzGVvY",
+          "name": "Step-2",
+          "width": "498px",
+          "isPrimary": false,
+          "isBreakpoint": false,
+          "inheritsFromId": "pNaQy2pwm"
+        },
+        {
+          "id": "pp4G4pHpB",
+          "name": "Step-3",
+          "width": "498px",
+          "isPrimary": false,
+          "isBreakpoint": false,
+          "inheritsFromId": "pNaQy2pwm"
+        },
+        {
+          "id": "r6RKU7h2E",
+          "name": "390",
+          "width": "330px",
+          "isPrimary": false,
+          "isBreakpoint": false,
+          "inheritsFromId": "pNaQy2pwm"
+        },
+        {
+          "id": "r1ZgP7e8c",
+          "name": "Step-2",
+          "width": "330px",
+          "isPrimary": false,
+          "isBreakpoint": false,
+          "inheritsFromId": "pNaQy2pwm"
+        },
+        {
+          "id": "dgMDcCYIN",
+          "name": "Step-3",
+          "width": "330px",
+          "isPrimary": false,
+          "isBreakpoint": false,
+          "inheritsFromId": "pNaQy2pwm"
+        }
+      ],
+      "moduleUrl": "https://framer.com/m/Free-Intro-Chat-OwSUxp.js@LteOfgEroCZvWwjQA2Oe",
+      "componentIdentifier": "local-module:canvasComponent/xPhvInwEv:default"
+    },
+    "externalComponents": [
+      {
+        "id": "bsgU6EDhv",
+        "name": "CardDeck",
+        "slug": "card-deck",
+        "source": "external",
+        "variants": [],
+        "moduleUrl": "https://framerusercontent.com/modules/QZY9x7oGiuPqfsEEEB15/brVSz5LysJ0gVooc2VLT/CardDeck.js",
+        "componentIdentifier": "module:QZY9x7oGiuPqfsEEEB15/brVSz5LysJ0gVooc2VLT/CardDeck.js:default"
+      },
+      {
+        "id": "tRmhGxpsr",
+        "name": "Carousel",
+        "slug": "carousel",
+        "source": "external",
+        "variants": [],
+        "moduleUrl": "https://framerusercontent.com/modules/UIrMjSS6ZX89L0CsT8k6/3dMrKtwDsHhQeeykStyV/Carousel.js",
+        "componentIdentifier": "module:UIrMjSS6ZX89L0CsT8k6/3dMrKtwDsHhQeeykStyV/Carousel.js:default"
+      },
+      {
+        "id": "Z5t5mOqff",
+        "name": "Embed",
+        "slug": "embed",
+        "source": "external",
+        "variants": [],
+        "moduleUrl": "https://framerusercontent.com/modules/o1PI5S8YtkA5bP5g4dFz/cAPMVEI6osbJ1UvICgTq/Embed.js",
+        "componentIdentifier": "module:o1PI5S8YtkA5bP5g4dFz/cAPMVEI6osbJ1UvICgTq/Embed.js:default"
+      },
+      {
+        "id": "DhsDS53gG",
+        "name": "Feather",
+        "slug": "feather",
+        "source": "external",
+        "variants": [],
+        "moduleUrl": "https://framerusercontent.com/modules/407RSC1iN7xY9tZK0Q8x/uOxystmK67s4TBrM8cle/mAKyPWQFl.js",
+        "componentIdentifier": "module:407RSC1iN7xY9tZK0Q8x/uOxystmK67s4TBrM8cle/mAKyPWQFl.js:default"
+      },
+      {
+        "id": "NN3a658vJ",
+        "name": "Layout Jump Preventer",
+        "slug": "layout-jump-preventer",
+        "source": "external",
+        "variants": [],
+        "moduleUrl": "https://framerusercontent.com/modules/h8ioHyt4BUxuvVCE1Q10/aTM6mEMGlM19JjX8exDe/AvoidLayoutJumping_Prod.js",
+        "componentIdentifier": "module:h8ioHyt4BUxuvVCE1Q10/aTM6mEMGlM19JjX8exDe/AvoidLayoutJumping_Prod.js:default"
+      },
+      {
+        "id": "FkN8jkD57",
+        "name": "Links: Community",
+        "slug": "links-community",
+        "source": "external",
+        "variants": [],
+        "moduleUrl": "https://framerusercontent.com/modules/JQRKwZv6rgdZ4OfkcuSU/45PpCkD31n6caHb3DNDn/dQcuWx460.js",
+        "componentIdentifier": "module:JQRKwZv6rgdZ4OfkcuSU/45PpCkD31n6caHb3DNDn/dQcuWx460.js:default"
+      },
+      {
+        "id": "t_XYkGksX",
+        "name": "Links: Product",
+        "slug": "links-product",
+        "source": "external",
+        "variants": [],
+        "moduleUrl": "https://framerusercontent.com/modules/h5NWUr2zThL8mxTuFoiD/NNhehG9sR9GaEUzPOHVB/jjuFZlrlF.js",
+        "componentIdentifier": "module:h5NWUr2zThL8mxTuFoiD/NNhehG9sR9GaEUzPOHVB/jjuFZlrlF.js:default"
+      },
+      {
+        "id": "ZExCYjOf9",
+        "name": "Links: Resources",
+        "slug": "links-resources",
+        "source": "external",
+        "variants": [],
+        "moduleUrl": "https://framerusercontent.com/modules/hP7GepOZhiRUVDuSMzGA/KSmZYjJTpixl4bS9QqHk/pPmogNY6m.js",
+        "componentIdentifier": "module:hP7GepOZhiRUVDuSMzGA/KSmZYjJTpixl4bS9QqHk/pPmogNY6m.js:default"
+      },
+      {
+        "id": "PXEH6Bgy7",
+        "name": "Phosphor",
+        "slug": "phosphor",
+        "source": "external",
+        "variants": [],
+        "moduleUrl": "https://framerusercontent.com/modules/tYScH7LTqUtz5KUaUAYP/p8dptk4UIND8hbFWz9V7/Phosphor.js#Icon",
+        "componentIdentifier": "module:tYScH7LTqUtz5KUaUAYP/p8dptk4UIND8hbFWz9V7/Phosphor.js:Icon"
+      },
+      {
+        "id": "Su8EQ0045",
+        "name": "Plus",
+        "slug": "plus",
+        "source": "external",
+        "variants": [],
+        "moduleUrl": "https://framerusercontent.com/modules/8lmJd8w75gKRoGT9q1K2/39RBLkdJurXVrrLMUbEn/feHWUubDx.js",
+        "componentIdentifier": "module:8lmJd8w75gKRoGT9q1K2/39RBLkdJurXVrrLMUbEn/feHWUubDx.js:default"
+      },
+      {
+        "id": "BUAIuyJDY",
+        "name": "Smooth Scroll",
+        "slug": "smooth-scroll",
+        "source": "external",
+        "variants": [],
+        "moduleUrl": "https://framerusercontent.com/modules/Yppqt3Cs3Y8TZqvASnXl/ALzPzo9ZL7qsyNt6jnNi/Smooth_Scroll.js",
+        "componentIdentifier": "module:Yppqt3Cs3Y8TZqvASnXl/ALzPzo9ZL7qsyNt6jnNi/Smooth_Scroll.js:default"
+      },
+      {
+        "id": "d0EMH5hsO",
+        "name": "Ticker",
+        "slug": "ticker",
+        "source": "external",
+        "variants": [],
+        "moduleUrl": "https://framerusercontent.com/modules/B2xAlJLcN0gOnt11mSPw/XVUmpmPn1EPL0dzocT35/Ticker.js",
+        "componentIdentifier": "module:B2xAlJLcN0gOnt11mSPw/XVUmpmPn1EPL0dzocT35/Ticker.js:default"
+      },
+      {
+        "id": "iOjj2NZED",
+        "name": "Ticker",
+        "slug": "ticker-2",
+        "source": "external",
+        "variants": [],
+        "moduleUrl": "https://framerusercontent.com/modules/B2xAlJLcN0gOnt11mSPw/plhC5PVnCMllW5QXjFK5/Ticker.js",
+        "componentIdentifier": "module:B2xAlJLcN0gOnt11mSPw/plhC5PVnCMllW5QXjFK5/Ticker.js:default"
+      },
+      {
+        "id": "Xpo33c8FS",
+        "name": "Trigger",
+        "slug": "trigger",
+        "source": "external",
+        "variants": [],
+        "moduleUrl": "https://framerusercontent.com/modules/euDwFeSwaU80taen07uo/UqqCE8F1R2yB2rNl3AyN/Vh4Yb6ijq.js",
+        "componentIdentifier": "module:euDwFeSwaU80taen07uo/UqqCE8F1R2yB2rNl3AyN/Vh4Yb6ijq.js:default"
+      },
+      {
+        "id": "UeX3kKvBr",
+        "name": "Video",
+        "slug": "video",
+        "source": "external",
+        "variants": [],
+        "moduleUrl": "https://framerusercontent.com/modules/NTDRIMWx6TM6nGmrFIsT/C2hjAHb6a129nfBUdKmZ/t7nwOy7JL.js",
+        "componentIdentifier": "module:NTDRIMWx6TM6nGmrFIsT/C2hjAHb6a129nfBUdKmZ/t7nwOy7JL.js:default"
+      }
+    ]
+  },
+  "runtime": {
+    "schemaVersion": 1,
+    "generatedRuntime": "free-intro-chat.runtime.jsx",
+    "preservesDefaultProps": true,
+    "normalizedArrayProps": [],
+    "sizedViewport": false
+  }
+}

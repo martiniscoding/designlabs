@@ -155,6 +155,12 @@ body {
   scroll-margin-top: 104px;
 }
 
+/* The surrounding cards provide the copy; keep the Reframe illustration-only
+   layer visible so its native hover graphics still animate cleanly. */
+.process-reframe .framer-1rue3gf {
+  display: none !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -434,3 +440,4 @@ body {
     stroke-dashoffset: -22;
   }
 }
+
