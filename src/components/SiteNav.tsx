@@ -76,6 +76,8 @@ export default function SiteNav() {
         <div className="flex items-center gap-2 md:pl-2">
           <a
             href={site.booking}
+            target="_blank"
+            rel="noopener noreferrer"
             className="hidden items-center rounded-full bg-accent px-6 py-3 text-[0.9375rem] font-semibold text-white shadow-[0_10px_22px_-12px_var(--color-accent)] transition-[translate,box-shadow] duration-300 ease-[var(--ease-out-soft)] hover:-translate-y-0.5 hover:shadow-[0_16px_28px_-12px_var(--color-accent)] sm:inline-flex"
           >
             Book a call
@@ -119,6 +121,8 @@ export default function SiteNav() {
             ))}
             <a
               href={site.booking}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setOpen(false)}
               className="mt-6 inline-flex items-center justify-center rounded-full bg-accent px-6 py-3.5 text-[0.9375rem] font-semibold text-white shadow-[0_10px_22px_-12px_var(--color-accent)]"
             >

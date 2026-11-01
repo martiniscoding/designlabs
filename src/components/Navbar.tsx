@@ -146,6 +146,8 @@ export default function Navbar({ overHero = false }: { overHero?: boolean }) {
 
         <a
           href={site.booking}
+          target="_blank"
+          rel="noopener noreferrer"
           className={`group relative hidden items-center gap-1.5 rounded-full py-2 pl-4 pr-3 text-sm font-medium transition-colors duration-500 sm:inline-flex ${
             light
               ? "bg-white text-ink"
@@ -218,6 +220,8 @@ export default function Navbar({ overHero = false }: { overHero?: boolean }) {
         ))}
         <a
           href={site.booking}
+          target="_blank"
+          rel="noopener noreferrer"
           onClick={() => setOpen(false)}
           className="mt-2 flex items-center justify-center gap-2 rounded-2xl bg-ink px-4 py-3.5 text-[0.9375rem] font-medium text-white"
         >

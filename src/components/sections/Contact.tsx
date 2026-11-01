@@ -149,6 +149,8 @@ export default function Contact() {
             <li>
               <a
                 href={site.booking}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group flex items-center gap-3 rounded-2xl border border-line bg-panel p-3.5 transition-all sm:gap-4 sm:p-4 duration-300 hover:-translate-y-0.5 hover:border-faint"
               >
                 <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-card text-ink shadow-[0_6px_14px_-8px_rgba(30,36,48,0.5)] [&_svg]:h-5 [&_svg]:w-5">

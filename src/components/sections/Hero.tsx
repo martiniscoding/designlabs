@@ -56,6 +56,8 @@ export default function Hero() {
         >
           <a
             href={hero.primary.href}
+            target="_blank"
+            rel="noopener noreferrer"
             className={`${button} bg-accent text-white`}
           >
             {hero.primary.label}
