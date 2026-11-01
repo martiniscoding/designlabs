@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Shell, { Container } from "@/components/Shell";
 import Hero from "@/components/sections/Hero";
 import Projects from "@/components/sections/Projects";
+import Clients from "@/components/sections/Clients";
 import Services from "@/components/sections/Services";
 import Impact from "@/components/sections/Impact";
 import Testimonials from "@/components/sections/Testimonials";
@@ -33,6 +34,7 @@ export default function Page() {
     <Shell hero>
       <Hero />
       <Projects />
+      <Clients />
       {/* The sections carry their own rhythm now that nothing separates
           them: one gap, set here, between every pair. */}
       <Container className="flex flex-col gap-28 pt-28 pb-4 lg:gap-40 lg:pt-40">
