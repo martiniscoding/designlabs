@@ -2,7 +2,9 @@ import type { NextConfig } from "next";
 import { PHASE_DEVELOPMENT_SERVER } from "next/constants";
 
 const nextConfig: NextConfig = {
+  output: "export",
   images: {
+    unoptimized: true,
     // AVIF first: the hero painting is the LCP element, and AVIF roughly
     // halves it against the WebP default.
     formats: ["image/avif", "image/webp"],
