@@ -5,6 +5,7 @@ import path from "node:path";
 export const alt = "The Design Labs | UI/UX, SaaS & Web Design Agency";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
+export const dynamic = "force-static";
 
 export default async function Image() {
   const [inter] = await Promise.all([
