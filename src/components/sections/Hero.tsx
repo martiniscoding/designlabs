@@ -16,7 +16,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative isolate flex min-h-[calc(100svh-72px)] flex-col overflow-hidden bg-[#fcf9f5]"
+      className="relative isolate flex min-h-[calc(88svh-72px)] flex-col overflow-hidden bg-[#fcf9f5]"
     >
       <Container className="relative z-10 flex flex-1 flex-col items-center justify-center pt-16 pb-14 text-center sm:pt-20 sm:pb-16 lg:pt-[clamp(5rem,12vh,8rem)] lg:pb-20">
         {/* The count is the real number of projects on the Work page. */}

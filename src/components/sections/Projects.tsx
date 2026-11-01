@@ -17,7 +17,7 @@ export default function Projects() {
   /* No bottom padding on purpose: the Container below supplies the page's
      standard gap, and the two were stacking into a 272px hole. */
   return (
-    <section id="projects" className="pt-20 lg:pt-28">
+    <section id="projects" className="pt-10 lg:pt-16">
       <Container>
         {/* Header: headline left, blurb + CTA right. */}
         <SectionLabel>{projects.eyebrow}</SectionLabel>
