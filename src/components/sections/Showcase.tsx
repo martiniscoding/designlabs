@@ -24,6 +24,8 @@ function Tile({ work, hidden }: { work: Work; hidden?: boolean }) {
             alt={alt}
             fill
             sizes="(min-width: 1024px) 36vw, 280px"
+            loading="eager"
+            fetchPriority="high"
             className="object-cover object-top"
           />
         )}

@@ -72,6 +72,8 @@ function Card({ work, index }: { work: Work; index: number }) {
         fill
         sizes="(min-width: 1024px) 560px, (min-width: 640px) 50vw, 100vw"
         priority={index === 0}
+        loading={index < 2 ? "eager" : "lazy"}
+        fetchPriority={index < 2 ? "high" : "auto"}
         className="object-cover object-top transition-transform duration-700 ease-[var(--ease-out-soft)] group-hover:scale-[1.03]"
       />
     );

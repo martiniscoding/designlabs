@@ -20,10 +20,19 @@ const projectFilters: Record<string, Category> = {
 };
 const sectionOrder: readonly Category[] = filters.slice(1) as readonly Category[];
 
-function Tile({ work, index }: { work: Work; index: number }) {
+function Tile({ work, index, eager = false }: { work: Work; index: number; eager?: boolean }) {
   const shotSizes = "(min-width: 1152px) 540px, (min-width: 768px) 48vw, 100vw";
   const media = work.kind === "app" ? <PhoneGroup screens={work.screens} alt={`${work.name} app`} /> : (
-    <Image src={work.src} alt={`${work.name} website`} fill sizes={shotSizes} priority={index < 2} className="object-cover object-top" />
+    <Image
+      src={work.src}
+      alt={`${work.name} website`}
+      fill
+      sizes={shotSizes}
+      priority={eager}
+      loading={eager ? "eager" : "lazy"}
+      fetchPriority={eager ? "high" : "auto"}
+      className="object-cover object-top"
+    />
   );
   return (
     <li className="work-in mb-5 break-inside-avoid md:mb-6" style={{ animationDelay: `${Math.min(index, 9) * 55}ms` } as CSSProperties}>
@@ -49,7 +58,7 @@ function ProjectSection({ category, projects }: { category: Category; projects: 
       <div className="mb-6 flex items-end justify-between gap-4 sm:mb-8">
         <h2 id={id} className="text-sm font-semibold uppercase tracking-[0.14em] text-ink-2">{category} <span className="text-muted">— {String(projects.length).padStart(2, "0")}</span></h2>
       </div>
-      <ul className="columns-1 gap-5 md:columns-2 md:gap-6">{projects.map((work, index) => <Tile key={work.slug} work={work} index={index} />)}</ul>
+      <ul className="columns-1 gap-5 md:columns-2 md:gap-6">{projects.map((work, index) => <Tile key={work.slug} work={work} index={index} eager={category === "Live Websites" && index < 2} />)}</ul>
     </section>
   );
 }

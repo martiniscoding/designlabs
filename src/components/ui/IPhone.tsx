@@ -22,7 +22,14 @@ export default function IPhone({
 
       <div className="relative h-full w-full rounded-[4.8cqw] bg-black p-[0.9cqw]">
         <div className="relative h-full w-full overflow-hidden rounded-[4cqw] bg-black">
-          <Image src={src} alt={alt} fill sizes="200px" className="object-cover object-top" />
+          <Image
+            src={src}
+            alt={alt}
+            fill
+            sizes="200px"
+            loading="lazy"
+            className="object-cover object-top"
+          />
           <span
             aria-hidden="true"
             className="absolute top-[2.2%] left-1/2 h-[3.4%] w-[32%] -translate-x-1/2 rounded-full bg-black"
