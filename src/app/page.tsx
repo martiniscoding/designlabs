@@ -11,21 +11,21 @@ import Footer from "@/components/sections/Footer";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
-  title: "The Design Labs | UI/UX, SaaS & Web Design Agency",
+  title: "SaaS Design Agency & UI/UX for Startups | The Design Labs",
   description:
-    "The Design Labs is a UI/UX, SaaS, web and mobile app design agency helping startups turn complex products into clear, trusted experiences.",
+    "The Design Labs helps startups design exceptional SaaS products, mobile apps, and websites. UI/UX and product design built around real business goals.",
   openGraph: {
-    title: "The Design Labs | UI/UX, SaaS & Web Design Agency",
+    title: "SaaS Design Agency & UI/UX for Startups | The Design Labs",
     description:
-      "UI/UX, SaaS, web and mobile app design for startups and growing products.",
+      "The Design Labs helps startups design exceptional SaaS products, mobile apps, and websites. UI/UX and product design built around real business goals.",
     type: "website",
     url: "https://www.thedesignlabs.agency/",
     siteName: "The Design Labs",
   },
   twitter: {
     card: "summary_large_image",
-    title: "The Design Labs | UI/UX, SaaS & Web Design Agency",
-    description: "UI/UX, SaaS, web and mobile app design for startups and growing products.",
+    title: "SaaS Design Agency & UI/UX for Startups | The Design Labs",
+    description: "The Design Labs helps startups design exceptional SaaS products, mobile apps, and websites. UI/UX and product design built around real business goals.",
   },
 };
 
